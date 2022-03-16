@@ -1,0 +1,77 @@
+// 
+// avatar.scss
+// Theme Component
+
+.avatar {
+  height: $size-base;
+  width: $size-base;
+  position: relative;
+  display: inline-block !important;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-group{
+  padding: 0;
+  display: flex;
+  > li{
+    position: relative;
+    &:not(:last-child){
+      margin-right: -0.8rem;
+    }
+  }
+  .avatar-img{
+    border: 2px solid $body-bg;
+  }
+}
+
+// avatar Sizing
+.avatar {
+  .avatar-name{
+    margin-left: 7px;
+  }
+}
+
+// avatar Sizing
+.avatar-xs {
+  height: $size-xs;
+  width: $size-xs;
+}
+
+.avatar-sm {
+  height: $size-sm;
+  width: $size-sm;
+}
+
+.avatar-lg {
+  height: $size-lg;
+  width: $size-lg;
+}
+
+.avatar-xl {
+  height: $size-xl;
+  width: $size-xl;
+}
+
+.avatar-xxl {
+  height: $size-xl;
+  width: $size-xl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-xxl;
+    height: $size-xxl;
+  }
+}
+.avatar-xxxl {
+  height: $size-xxl;
+  width: $size-xxl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-xxxl;
+    height: $size-xxxl;
+  }
+}

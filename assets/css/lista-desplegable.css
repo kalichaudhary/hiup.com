@@ -1,0 +1,122 @@
+#menu * { list-style:none;}
+/* #menu li{ line-height:180%;} */
+#menu li a{ text-decoration:none;}
+#menu li a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
+#menu input[name="list"] {
+	position: absolute;
+	left: -1000em;
+	}
+#menu label:before{ content:"\025b8"; margin-right:4px;}
+#menu label {cursor: pointer;}
+#menu input:checked ~ label:before{ content:"\025be";}
+#interior{display: none;}
+#interior li a{ text-decoration:none;}
+#interior li a:before{ content:"\0270f"; color:#aaa; margin-right:4px;}
+#menu input:checked ~ ul{display:block;}
+
+img.logo-head {
+    height: 59px;
+    max-width: none;
+}
+
+img#adium{
+    height: 50px;
+    max-width: none;
+}
+
+section.bg-dark.align-items-center.d-flex {
+    background-color: rgb(98 56 246 / 75%) !important;
+	padding: 0 !important;
+}
+
+#nav-eventos-sociales{
+	box-shadow: 0px 5px 30px #ddd;
+}
+
+.card{
+	max-height: 500px;
+    height: 100%;
+}
+
+#price-card{
+	width: 42%;
+}
+
+#title-card{
+	width: 58%;
+}
+
+img.light-mode-item {
+    max-width: 100%;
+}
+
+#w-a{
+	width: 55px;
+}
+
+.b-shadow-lila{
+	box-shadow: 0px 0px 25px 2px rgb(98 56 246) !important;
+	background-color: rgb(98 56 246 /10%) !important;
+}
+
+.b-shadow-rosa{
+	box-shadow: 0px 0px 25px 2px rgb(242 101 251) !important;
+	background-color: rgb(242 101 251 /10%) !important;
+}
+
+.b-shadow-azul{
+	box-shadow: 0px 0px 25px 2px rgb(0 222 191) !important;
+	background-color: rgb(0 222 191 /10%) !important;
+}
+
+.b-shadow {
+	box-shadow: 0px 0px 25px 2px #aaa !important;
+}
+
+.b-shadow-2 {
+	box-shadow: 0px 0px 10px 5px #fff !important;
+}
+
+@media (min-width: 1200px) {
+	#adium{
+		margin-left: 40%;
+	}
+
+	img.logo-ha{
+		margin-left: 40%;
+	}
+
+	img.logo-ha-2{
+		height: 50px;
+	}
+
+	#title-e-s{
+		margin-bottom: 3%; 
+		margin-top: 3%;
+	}
+
+}
+
+@media (max-width: 1199px) {
+	#adium{
+		display: none;
+	}
+
+	img.logo-ha{
+		margin-left: 40%;
+	}
+
+	#adium-nb{
+		 display: none;
+	}
+
+	#title-e-s{
+		margin-bottom: 6%; 
+		margin-top: 6%;
+	}
+
+	.card-size-movil {
+		height: 100%;
+		max-height: -webkit-fill-available !important;
+	}
+}

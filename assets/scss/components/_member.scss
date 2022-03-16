@@ -1,0 +1,118 @@
+// 
+// member.scss
+// Theme Component
+
+.member {
+  height: $size-base;
+  width: $size-base;
+  position: relative;
+  display: inline-block !important;
+}
+
+.member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-group{
+  padding: 0;
+  display: flex;
+  > li{
+    position: relative;
+    // &:not(:last-child){
+    //   margin-right: -0.8rem;
+    // }
+  }
+  .member-img{
+    border: 2px solid $body-bg;
+  }
+}
+
+// member Sizing
+.member {
+  .member-name{
+    margin-left: 7px;
+  }
+}
+
+// member Sizing
+.member-xs {
+  height: $size-xs;
+  width: $size-xs;
+}
+
+.member-sm {
+  height: $size-sm;
+  width: $size-sm;
+}
+
+.member-lg {
+  height: $size-lg;
+  width: $size-lg;
+}
+
+.member-xl {
+  height: $size-xl;
+  width: $size-xl;
+}
+
+.member-xxl {
+  height: $size-xl;
+  width: $size-xl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-xxl;
+    height: $size-xxl;
+  }
+}
+.member-xxxl {
+  height: $size-xxl;
+  width: $size-xxl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-xxxl;
+    height: $size-xxxl;
+  }
+}
+
+
+// member Sizing With Only
+.member-xs-w {
+  height: $size-auto;
+  width: $size-xs;
+}
+
+.member-sm-w {
+  height: $size-auto;
+  width: $size-sm;
+}
+
+.member-lg-w {
+  height: $size-auto;
+  width: $size-lg;
+}
+
+.member-xl-w {
+  height: $size-auto;
+  width: $size-xl;
+}
+
+.member-xxl-w {
+  height: $size-auto;
+  width: $size-xl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-auto;
+    height: $size-xxl;
+  }
+}
+.member-xxxl-w {
+  height: $size-auto;
+  width: $size-xxl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-auto;
+    height: $size-xxxl;
+  }
+}

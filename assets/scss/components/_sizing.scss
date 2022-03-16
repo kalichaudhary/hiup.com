@@ -1,0 +1,133 @@
+// 
+// sizing.scss
+// Theme Component
+
+.sizing {
+  height: $size-base;
+  width: $size-base;
+  position: relative;
+  display: inline-block !important;
+}
+
+.sizing-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sizing-group{
+  padding: 0;
+  display: flex;
+  > li{
+    position: relative;
+    // &:not(:last-child){
+    //   margin-right: -0.8rem;
+    // }
+  }
+  .sizing-img{
+    border: 2px solid $body-bg;
+  }
+}
+
+// sizing Sizing
+.sizing {
+  .sizing-name{
+    margin-left: 7px;
+  }
+}
+
+// sizing Sizing
+.sizing-xs {
+  height: $size-xs;
+  width: $size-xs;
+}
+
+.sizing-sm {
+  height: $size-sm;
+  width: $size-sm;
+}
+
+.sizing-lg {
+  height: $size-lg;
+  width: $size-lg;
+}
+
+.sizing-xl {
+  height: $size-xl;
+  width: $size-xl;
+}
+
+.sizing-xxl {
+  height: $size-xl;
+  width: $size-xl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-xxl;
+    height: $size-xxl;
+  }
+}
+.sizing-xxxl {
+  height: $size-xxl;
+  width: $size-xxl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-xxxl;
+    height: $size-xxxl;
+  }
+}
+
+
+// sizing Sizing With Only
+.sizing-xs-w {
+  height: $size-auto;
+  width: $size-xs;
+}
+
+.sizing-sm-w {
+  height: $size-auto;
+  width: $size-sm;
+}
+
+.sizing-lg-w {
+  height: $size-auto;
+  width: $size-lg;
+}
+
+.sizing-xl-w {
+  height: $size-auto;
+  width: $size-xl;
+}
+
+.sizing-xlg-w {
+  height: $size-auto;
+  width: $size-xlg;
+}
+
+.sizing-lg-w {
+  height: $size-auto;
+  width: $size-lg;
+
+  @include media-breakpoint-up(md) {
+    width: $size-auto;
+    height: $size-sxm;
+  }
+}
+
+.sizing-xxl-w {
+  height: $size-auto;
+  width: $size-xl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-auto;
+    height: $size-xxl;
+  }
+}
+.sizing-xxxl-w {
+  height: $size-auto;
+  width: $size-xxl;
+
+  @include media-breakpoint-up(md) {
+    width: $size-auto;
+    height: $size-xxxl;
+  }
+}
