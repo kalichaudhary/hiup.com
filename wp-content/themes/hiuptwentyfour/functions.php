@@ -60,7 +60,7 @@ function wpdocs_theme_setup()
 }
 
 //remove default wordpress editor
-add_action('admin_init', function() {
+add_action('admin_init', function () {
     // List of post types to disable the editor for
     $post_types = ['page'];
 
@@ -70,14 +70,16 @@ add_action('admin_init', function() {
 });
 
 
-function custom_mime_types($mimes) {
+function custom_mime_types($mimes)
+{
     $mimes['webp'] = 'image/webp';
     return $mimes;
 }
 add_filter('mime_types', 'custom_mime_types');
 
 // Check for file extension and MIME type
-function check_webp_upload($file) {
+function check_webp_upload($file)
+{
     $file_type = wp_check_filetype($file['name']);
     if (in_array($file_type['ext'], ['webp']) && in_array($file_type['type'], ['image/webp'])) {
         $file['type'] = 'image/webp';
@@ -87,7 +89,8 @@ function check_webp_upload($file) {
 add_filter('wp_handle_upload_prefilter', 'check_webp_upload');
 
 // Add WebP support to media library
-function webp_is_displayable($result, $path) {
+function webp_is_displayable($result, $path)
+{
     if ($result === false) {
         $info = @getimagesize($path);
         if ($info && $info[2] === IMAGETYPE_WEBP) {
@@ -99,3 +102,29 @@ function webp_is_displayable($result, $path) {
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 
+// Add your custom CSS rules here
+add_action('admin_head', 'custom_admin_css');
+
+function custom_admin_css()
+{
+?>
+    <style>
+        .cf-radio-image .cf-radio__list-item {
+            flex: 0 0 30% !important;
+        }
+
+        .cf-media-gallery__item-thumb {
+            min-height: 0 !important;
+            min-width: 0 !important;
+        }
+
+        .cf-radio__list {
+            display: flex !important;
+        }
+
+        .cf-radio__list-item {
+            padding-right: 15px !important;
+        }
+    </style>
+<?php
+}

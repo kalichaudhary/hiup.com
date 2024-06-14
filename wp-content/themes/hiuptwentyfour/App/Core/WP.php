@@ -96,7 +96,6 @@ class WP
         add_theme_support('title-tag');
 
         // Custom functions
-        static::acfOptionsPage();
         static::registerMenus();
         static::addCustomImageSizes();
     }
@@ -243,20 +242,6 @@ class WP
         return 'low';
     }
 
-    /**
-     * Adds ACF option menu page called (Site Settings) in Dashboard
-     */
-    public static function acfOptionsPage()
-    {
-        if (function_exists('acf_add_options_page')) {
-            acf_add_options_page([
-                'page_title' => 'Site Settings',
-                'menu_title' => 'Site Settings',
-                'menu_slug'  => 'site-settings',
-                'redirect'  => false,
-            ]);
-        }
-    }
 
     /**
      * Registers Primary nav menu
