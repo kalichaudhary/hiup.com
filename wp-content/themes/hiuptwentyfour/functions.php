@@ -60,7 +60,7 @@ function wpdocs_theme_setup()
 }
 
 //remove default wordpress editor
-add_action('admin_init', function() {
+add_action('admin_init', function () {
     // List of post types to disable the editor for
     $post_types = ['page'];
 
@@ -70,14 +70,16 @@ add_action('admin_init', function() {
 });
 
 
-function custom_mime_types($mimes) {
+function custom_mime_types($mimes)
+{
     $mimes['webp'] = 'image/webp';
     return $mimes;
 }
 add_filter('mime_types', 'custom_mime_types');
 
 // Check for file extension and MIME type
-function check_webp_upload($file) {
+function check_webp_upload($file)
+{
     $file_type = wp_check_filetype($file['name']);
     if (in_array($file_type['ext'], ['webp']) && in_array($file_type['type'], ['image/webp'])) {
         $file['type'] = 'image/webp';
@@ -87,7 +89,8 @@ function check_webp_upload($file) {
 add_filter('wp_handle_upload_prefilter', 'check_webp_upload');
 
 // Add WebP support to media library
-function webp_is_displayable($result, $path) {
+function webp_is_displayable($result, $path)
+{
     if ($result === false) {
         $info = @getimagesize($path);
         if ($info && $info[2] === IMAGETYPE_WEBP) {
@@ -99,3 +102,14 @@ function webp_is_displayable($result, $path) {
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 
+
+// Ensure jQuery is enqueued and create a custom script to handle image display based on menu selection. Add this to your functions.php or wherever you manage script enqueues in your theme or plugin:
+function custom_admin_kali()
+{
+    // Enqueue custom JavaScript
+    wp_enqueue_script('custom-admin-script', get_template_directory_uri() . '/assets/js/wp-custom-admin.js', array(), null, true);
+
+    // Enqueue custom CSS
+    wp_enqueue_style('custom-admin-style', get_template_directory_uri() . '/assets/css/wp-custom-admin.css', array(), null);
+}
+add_action('admin_enqueue_scripts', 'custom_admin_kali');

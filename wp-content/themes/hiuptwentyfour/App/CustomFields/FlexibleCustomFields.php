@@ -17,7 +17,7 @@ class FlexibleCustomFields
     {
         Container::make('post_meta', __('Section Options'))
             ->where('post_type', '=', 'page')
-            ->where('post_id', '=', get_option('page_on_front')) 
+            ->where('post_id', '=', get_option('page_on_front'))
             ->add_fields([
                 Field::make('complex', 'hiup_sections', 'Sections')
 
@@ -37,8 +37,10 @@ class FlexibleCustomFields
                             ])
                             ->set_width(50)
                             ->set_default_value([
-                                ['short_intro' => '<h4>Our</h4>
-						        <h2><span class="text-warning">Services</span></h2>']
+                                [
+                                    'short_intro' => '<h4>Our</h4>
+						        <h2><span class="text-warning">Services</span></h2>'
+                                ]
                             ]),
 
                         Field::make('complex', 'services_repeater', 'Services Repeater')
@@ -61,7 +63,7 @@ class FlexibleCustomFields
                             ->add_fields([
                                 Field::make('radio', 'left_image_or_editor', 'Image or Editor ?')
                                     ->set_options([
-                                        'image'  => 'Image',
+                                        'image' => 'Image',
                                         'editor' => 'Editor',
                                     ])
                                     ->set_default_value('image'),
@@ -81,7 +83,7 @@ class FlexibleCustomFields
                             ->add_fields([
                                 Field::make('radio', 'right_image_or_editor', 'Image or Editor ?')
                                     ->set_options([
-                                        'image'  => 'Image',
+                                        'image' => 'Image',
                                         'editor' => 'Editor',
                                     ])
                                     ->set_default_value('editor'),

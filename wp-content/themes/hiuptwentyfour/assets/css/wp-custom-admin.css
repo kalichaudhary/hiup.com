@@ -1,0 +1,11 @@
+.__hover-image {
+    display: none;
+    margin-left: 180px;
+    top: 0;
+    position: absolute;
+    /* z-index: 1000; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
