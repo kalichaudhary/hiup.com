@@ -113,3 +113,32 @@ function custom_admin_kali()
     wp_enqueue_style('custom-admin-style', get_template_directory_uri() . '/assets/css/wp-custom-admin.css', array(), null);
 }
 add_action('admin_enqueue_scripts', 'custom_admin_kali');
+
+// Add your custom CSS rules here
+add_action('admin_head', 'custom_admin_css');
+
+
+function custom_admin_css()
+{
+    ?>
+    <style>
+        .cf-radio-image .cf-radio__list-item {
+            flex: 0 0 30% !important;
+        }
+
+        .cf-media-gallery__item-thumb {
+            min-height: 0 !important;
+            min-width: 0 !important;
+        }
+
+        .cf-radio__list {
+            display: flex !important;
+        }
+
+        .cf-radio__list-item {
+            padding-right: 15px !important;
+        }
+    </style>
+    <?php
+}
+

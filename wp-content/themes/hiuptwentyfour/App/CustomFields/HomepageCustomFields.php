@@ -18,6 +18,7 @@ class HomepageCustomFields
         Container::make('post_meta', __('Hero Banner'))
          ->where( 'post_type', '=', 'page' )
          ->where('post_id', '=', get_option('page_on_front')) 
+         ->set_priority('high')
             ->add_fields([
                 Field::make('text', 'hero_headline', 'Headline')
                 ->set_width(33.33),

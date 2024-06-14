@@ -29,11 +29,11 @@ class App
     $instance = new static();
 
     /**
-     * Check if ACF is active or not if ACF is not active
+     * Check if Carbon is active or not if Carbon is not active
      * Show error message with instructions to activate "Advanced Custom Fields" plugin
      */
     if (!function_exists('carbon_get_the_post_meta') && !is_admin() && !((defined('WP_CLI') && WP_CLI))) {
-      return $instance::showMessageToActivateACF();
+      return $instance::showMessageToActivateCarbon();
     }
 
     // require_once 'helper-functions.php';
@@ -51,7 +51,7 @@ class App
   /**
    * Show error message with instructions to activate "Advanced Custom Fields" plugin
    */
-  public static function showMessageToActivateACF()
+  public static function showMessageToActivateCarbon()
   {
 
     // Show error message HTML

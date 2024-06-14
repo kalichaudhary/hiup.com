@@ -8,6 +8,7 @@ use Carbon_Fields\Field;
 
 class FlexibleCustomFields
 {
+    use PostCategoriesTrait;
     public static function init()
     {
         self::registerPostOptions();
@@ -15,11 +16,20 @@ class FlexibleCustomFields
 
     private static function registerPostOptions()
     {
-        Container::make('post_meta', __('Section Options'))
+
+        $layouts_labels = [
+            'plural_name'   => 'Layouts',
+            'singular_name' => 'Layout',
+        ];
+
+        Container::make('post_meta', __('Layout Options'))
             ->where('post_type', '=', 'page')
             ->where('post_id', '=', get_option('page_on_front'))
             ->add_fields([
-                Field::make('complex', 'hiup_sections', 'Sections')
+
+                Field::make('complex', 'hiup_sections', '')
+                    ->setup_labels($layouts_labels)
+                    ->set_collapsed(true)
 
                     //Crousel Layout
                     ->add_fields('carousel', 'Carousel Layout', [
@@ -55,7 +65,7 @@ class FlexibleCustomFields
                             ->set_width(50)
                     ])
 
-
+                    // Image or Editor Layout
                     ->add_fields('image_wysiwyg', 'Image and Editor Layout', [
                         Field::make('complex', 'left_half_img_edit', 'Left Block')
                             ->set_duplicate_groups_allowed(false)
@@ -74,6 +84,10 @@ class FlexibleCustomFields
 
                                 Field::make('rich_text', 'left_editor_field', 'Editor')->set_conditional_logic([
                                     ['field' => 'left_image_or_editor', 'value' => 'editor'],
+                                ]),
+
+                                Field::make('text', 'left_button_url', 'Button URL')->set_attribute('type', 'url')->set_conditional_logic([
+                                    ['field' => 'right_image_or_editor', 'value' => 'editor'],
                                 ]),
                             ]),
 
@@ -95,10 +109,83 @@ class FlexibleCustomFields
                                 Field::make('rich_text', 'right_editor_field', 'Editor')->set_conditional_logic([
                                     ['field' => 'right_image_or_editor', 'value' => 'editor'],
                                 ]),
-                            ]),
 
+                                Field::make('text', 'right_button_url', 'Button URL')->set_attribute('type', 'url')->set_conditional_logic([
+                                    ['field' => 'right_image_or_editor', 'value' => 'editor'],
+                                ]),
+                            ]),
+                    ])
+
+                    //Crousel Layout
+                    ->add_fields('preamble_video', 'Preamble and Video Layout', [
+                        Field::make('text', 'preamble_text', 'Preamble')
+                            ->set_width(50),
+                        Field::make('complex', 'right_half_img_edit', 'Right Block')
+                            ->set_width(50)
+                            ->set_duplicate_groups_allowed(false)
+                            ->add_fields([
+                                Field::make('image', 'video_thumb', 'Video Thumb Image'),
+                                Field::make('oembed', 'preamble_video', 'Video URL')
+                            ]),
+                    ])
+
+                    //Testimonials Layout
+                    ->add_fields('testimonial_layout', 'Testimonials Layout', [
+                        Field::make('text', 'testimonial_headline', 'Headline'),
+                        Field::make('text', 'testimonial_sub_headline', 'Sub Headline'),
+                        Field::make('association', 'testimonials', __('Testimonials'))
+                            ->set_types([
+                                [
+                                    'type'      => 'post',
+                                    'post_type' => 'testimonial',
+                                ]
+                            ])
+                    ])
+
+                    //Counters Layout
+                    ->add_fields('counters_layout', 'Counters Layout', [
+                        Field::make('complex', 'custom_counter_section', 'Custom Counter Section')
+                            ->add_fields([
+                                Field::make('image', 'counter_thumbnail_image', 'Thumbnail Image')
+                                    ->set_help_text('Recommended size: 676x161.3px'),
+
+                                // Counter items
+                                Field::make('complex', 'counter_items', 'Counter Items')
+                                    ->set_layout('tabbed-horizontal')
+                                    ->add_fields([
+                                        Field::make('text', 'counter_end', 'Total Counter')
+                                            ->set_default_value('100'),
+                                        Field::make('text', 'counter_suffix', 'Counter Suffix')
+                                            ->set_default_value('+')
+                                            ->set_help_text('Suffix for the counter, e.g., +, K+, M+'),
+                                        Field::make('text', 'counter_label', 'Counter Label')
+                                            ->set_default_value('Dedicated People'),
+                                    ]),
+                            ])
+                    ])
+
+                    //Short Intro w/Gallery Layout
+                    ->add_fields('short_intro_gallery', 'Short Intro w/Gallery Layout', [
+                        Field::make('rich_text', 'short_intro', 'Short Intro'),
+                        Field::make('media_gallery', 'gallery', 'Upload Images'),
+                    ])
+
+                    //Posts Feed Layout
+                    ->add_fields('posts_feed', 'Posts Feed Layout', [
+                        Field::make('text', 'posts_feed_headline', 'Headline')
+                            ->set_width(50),
+                        Field::make('text', 'posts_feed_subheadline', 'Sub Headline')
+                            ->set_width(50),
+                        Field::make('select', 'choose_category', 'Choose Category')
+                            ->add_options(self::getPostCategories()), // Populate options with post categories
+                        Field::make('radio_image', 'choose_feed_layout', __('Choose Feed Layout'))
+                            ->set_options([
+                                'masonry'  => get_template_directory_uri() . '/assets/layouts/masonry.png',
+                                'carousel' => get_template_directory_uri() . '/assets/layouts/carousel.png',
+                            ])
 
                     ])
+
             ]);
     }
 }
