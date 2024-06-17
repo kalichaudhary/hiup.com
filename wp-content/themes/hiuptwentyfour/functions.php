@@ -1,13 +1,37 @@
 <?php
 
+/**
+ * Timber starter-theme
+ * https://github.com/timber/starter-theme
+ */
+
+// Disable deprecated warnings
+error_reporting(E_ALL & ~E_DEPRECATED);
+
+// Or suppress deprecated warnings
+@ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
+
+
 use Carbon_Fields\Carbon_Fields;
 use App\CustomFields\InitCustomFields;
 
+
 add_action('after_setup_theme', function () {
-    require_once get_template_directory() . '/vendor/autoload.php';
+    require_once(__DIR__ . '/vendor/autoload.php');
+
+    require_once __DIR__ . '/src/StarterSite.php';
+
     Carbon_Fields::boot();
     InitCustomFields::init();
+    // Initialize Timber.
+    Timber\Timber::init();
+
+    // Sets the directories (inside your theme) to find .twig files.
+    Timber::$dirname = ['templates', 'views'];
+
+    new StarterSite();
 });
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +59,7 @@ function app_namespace_autoloader($namespace)
 
 // Init app
 add_action('init', ['App\App', 'init']);
+
 
 function get_asset($asset_path)
 {
@@ -127,4 +152,9 @@ function custom_admin_css()
         }
     </style>
 <?php
+}
+
+
+function carbonPostMeta($field) {
+    return carbon_get_the_post_meta($field);
 }
