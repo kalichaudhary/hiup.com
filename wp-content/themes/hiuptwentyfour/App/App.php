@@ -5,6 +5,7 @@ namespace App;
 use App\Core\WP;
 use App\Core\WPDisableComments;
 use App\PostTypes\TestimonialPostType;
+use App\Integrations\CarbonIntegration;
 
 
 /*
@@ -35,6 +36,13 @@ class App
     if (!function_exists('carbon_get_the_post_meta') && !is_admin() && !((defined('WP_CLI') && WP_CLI))) {
       return $instance::showMessageToActivateCarbon();
     }
+
+
+    add_filter('timber/integrations', function (array $integrations): array {
+      $integrations[] = new CarbonIntegration();
+
+      return $integrations;
+    });
 
     // require_once 'helper-functions.php';
 

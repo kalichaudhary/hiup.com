@@ -36,10 +36,11 @@ PARALAX
 25 PRICING
 26 STICKY ELEMENT
 27 OVERLAY SCROLLBARS
+28  SWIPER SLIDER
 ====================== */
 
 'use strict';
-!(function () { 
+!(function () {
   // PARALAX
   (function () {
     for (
@@ -52,7 +53,7 @@ PARALAX
 
   (window.Element.prototype.removeClass = function () {
     let className =
-        arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : '',
+      arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : '',
       selectors = this;
     if (!(selectors instanceof HTMLElement) && selectors !== null) {
       selectors = document.querySelector(selectors);
@@ -64,7 +65,7 @@ PARALAX
   }),
     (window.Element.prototype.addClass = function () {
       let className =
-          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : '',
+        arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : '',
         selectors = this;
       if (!(selectors instanceof HTMLElement) && selectors !== null) {
         selectors = document.querySelector(selectors);
@@ -76,7 +77,7 @@ PARALAX
     }),
     (window.Element.prototype.toggleClass = function () {
       let className =
-          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : '',
+        arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : '',
         selectors = this;
       if (!(selectors instanceof HTMLElement) && selectors !== null) {
         selectors = document.querySelector(selectors);
@@ -128,6 +129,8 @@ var e = {
       e.darkMode(),
       e.pricing(),
       e.stickyElement(),
+      e.swiperSlider(),
+      e.mouseMove(),
       e.overlayScrollbars();
   },
   isVariableDefined: function (el) {
@@ -1248,6 +1251,68 @@ var e = {
     }
   },
   // END: Overlay scrollbars
-  
+
+  // START: 19 Swiper slider
+  swiperSlider: function () {
+
+    var swpr = e.select('[data-swiper-options]');
+    if (e.isVariableDefined(swpr)) {
+
+      // basic options for all sliders
+      let defaults = {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        loop: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+        },
+        freeMode: false,
+      };
+
+      // call init function
+      initSwipers(defaults);
+
+      function initSwipers(defaults = {}, selector = ".swiper") {
+        // get all swiper elements
+        let swipers = document.querySelectorAll(selector);
+
+        // iterate over swiper elements
+        swipers.forEach((swiper) => {
+          // get custom options
+          let optionsData = swiper.getAttribute("data-swiper-options")
+            ? JSON.parse(swiper.getAttribute("data-swiper-options"))
+            : {};
+
+          // combine defaults and custom options
+          let options = {
+            ...defaults,
+            ...optionsData
+          };
+
+          // init swiper
+          new Swiper(swiper, options);
+        });
+      }
+    }
+  },
+  // END: Swiper slider
+
+  // START: 20 Mouse Move Parallax
+  mouseMove: function () {
+    document.addEventListener("mousemove", parallax);
+    function parallax(event) {
+      this.querySelectorAll(".parallax-wrap .layer").forEach((shift) => {
+        const position = shift.getAttribute("data-depth");
+        const x = (window.innerWidth - event.pageX * position) / 90;
+        const y = (window.innerHeight - event.pageY * position) / 90;
+
+        shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      });
+    }
+  },
+  // END: Mouse Move Parallax
+
 };
 e.init();
