@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
         'Preamble and Video Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/preamble_video-layout.webp',
         'Testimonials Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/testimonials-layout.webp',
         'Counters Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/counters_layout.webp',
-        'Short Intro w/Gallery Layout': 'https://picsum.photos/500/200?3',
-        'Posts Feed Layout': 'https://picsum.photos/500/200?3'
+        'Short Intro w/Gallery Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/news-layout.webp',
+        'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp'
     };
 
     const listItems = document.querySelectorAll('.cf-complex__inserter-item');
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
             hoverImage.style.display = 'none';
         });
 
-        hoverImage.addEventListener('mouseover', function () {
-            imageHiddenByClick = true;
-            hoverImage.style.display = 'block';
-            item.dispatchEvent(new Event('mouseenter'));
-        });
+        // hoverImage.addEventListener('mouseover', function () {
+        //     imageHiddenByClick = true;
+        //     hoverImage.style.display = 'block';
+        //     item.dispatchEvent(new Event('mouseenter'));
+        // });
     });
 });
