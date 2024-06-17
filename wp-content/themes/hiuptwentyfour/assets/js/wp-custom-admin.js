@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const hoverImages = {
-        'Carousel Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/carousel-layout.png',
-        'Services Layout': 'https://picsum.photos/500/200?2',
-        'Image and Editor Layout': 'https://picsum.photos/500/200?3',
-        'Preamble and Video Layout': 'https://picsum.photos/500/200?3',
-        'Testimonials Layout': 'https://picsum.photos/500/200?3',
-        'Counters Layout': 'https://picsum.photos/500/200?3',
+        'Carousel Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/carousel-layout.webp',
+        'Services Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/service-layout.webp',
+        'Image and Editor Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/image_editor-layout.webp',
+        'Preamble and Video Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/preamble_video-layout.webp',
+        'Testimonials Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/testimonials-layout.webp',
+        'Counters Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/counters_layout.webp',
         'Short Intro w/Gallery Layout': 'https://picsum.photos/500/200?3',
         'Posts Feed Layout': 'https://picsum.photos/500/200?3'
     };
