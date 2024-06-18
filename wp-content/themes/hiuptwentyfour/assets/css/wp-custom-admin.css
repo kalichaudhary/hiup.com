@@ -5,7 +5,7 @@
 .__hover-image {
     display: none;
     margin-left: 180px;
-    /* top: 0; */
+    top: 0;
     position: absolute;
     z-index: 9999;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
