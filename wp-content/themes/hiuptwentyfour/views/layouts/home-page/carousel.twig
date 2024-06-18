@@ -1,0 +1,25 @@
+{% set images = section.carousel_gallery %}
+
+{% if images %}
+
+    <section class="pb-0 pb-md-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+
+                    <div class="tiny-slider">
+                        <div class="d-flex align-items-center tiny-slider-inner" data-arrow="false" data-dots="false" data-gutter="80" data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-sm="3" data-items-xs="2" data-autoplay="2000">
+                            {% for i in images %}
+                                {% set image = get_image(i) %}
+                                <div class="item">
+                                    <img class="grayscale" src="{{ image.src }}" alt="{{ image.alt }}" />
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endif %}

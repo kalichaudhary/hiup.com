@@ -44,6 +44,7 @@ class FlexibleCustomFields
                                 Field::make('rich_text', 'short_intro', 'Short Description'),
                                 Field::make('image', 'short_intro_image', 'Thumbnail Image')
                                     ->set_width(50),
+                                Field::make('urlpicker', 'short_intro_link', 'Link URL'),
                             ])
                             ->set_width(50)
                             ->set_default_value([
@@ -84,8 +85,8 @@ class FlexibleCustomFields
                                     ['field' => 'left_image_or_editor', 'value' => 'editor'],
                                 ]),
 
-                                Field::make('text', 'left_button_url', 'Button URL')->set_attribute('type', 'url')->set_conditional_logic([
-                                    ['field' => 'right_image_or_editor', 'value' => 'editor'],
+                                Field::make('urlpicker', 'left_button_url', 'Button URL')->set_conditional_logic([
+                                    ['field' => 'left_image_or_editor', 'value' => 'editor'],
                                 ]),
                             ]),
 
@@ -108,7 +109,7 @@ class FlexibleCustomFields
                                     ['field' => 'right_image_or_editor', 'value' => 'editor'],
                                 ]),
 
-                                Field::make('text', 'right_button_url', 'Button URL')->set_attribute('type', 'url')->set_conditional_logic([
+                                Field::make('urlpicker', 'right_button_url', 'Button URL')->set_conditional_logic([
                                     ['field' => 'right_image_or_editor', 'value' => 'editor'],
                                 ]),
                             ]),

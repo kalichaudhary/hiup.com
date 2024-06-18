@@ -105,9 +105,12 @@
 	</section>
 
 	{% block footer %}
-		<footer	id="footer">
-			{% include 'footer.twig' %}
-		</footer>
+	
+		{% if is_front_page %}
+			{% include 'footer-homepage.twig' %}
+		{% endif %}
+
+		{% include 'footer.twig' %}
 		{{ function('wp_footer') }}
 	{% endblock %}
 </body></html>

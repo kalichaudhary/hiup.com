@@ -1,0 +1,48 @@
+<section>
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            {% for introduction in section.services_introduction %}
+                <div class="col-lg-5">
+                    {{ introduction.short_intro | raw }}
+
+                    {% set intro_image = get_image(introduction.short_intro_image) %}
+
+                    {% if intro_image %}
+                        <img src="{{ intro_image.src |resize(515, 386) }}" class="rounded-2" alt="{{ intro_image.alt }}" />
+                    {% endif %}
+
+                    {% if introduction.short_intro_link.url is not empty %}
+                        <a href="{{ introduction.short_intro_link.url }}" class="btn btn-primary-soft mb-0 mt-3" {% if introduction.short_intro_link.blank %} target="_blank" {% endif %}>
+                            {{ introduction.short_intro_link.anchor }}
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            {% set services = section.services_repeater %}
+
+            {% if services is not empty %}
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        {% for service in services %}
+                            <div class="col-sm-6">
+                                {% if service. service_icon is not empty %}
+                                    <div class="icon-lg bg-orange bg-opacity-10 text-orange rounded-2">
+                                        {{ service.service_icon|raw }}
+                                    </div>
+                                {% endif %}
+                                <h5 class="mt-2">
+                                    {{ service.service_headline }}
+                                </h5>
+                                <p class="mb-0">
+                                    {{ service.service_intro|raw }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
