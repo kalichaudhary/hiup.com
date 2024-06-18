@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         hoverImage.src = hoverImages[listItemText];
         hoverImage.style.display = 'none';
         document.body.appendChild(hoverImage);
-        hoverImage.style.width = '1080px';
+        hoverImage.style.width = '396px';
         hoverImage.style.height = 'auto';
 
         let imageHiddenByClick = false;
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
         item.addEventListener('mouseenter', function () {
             if (!imageHiddenByClick) {
                 const rect = item.getBoundingClientRect();
-                hoverImage.style.top = rect.top + window.scrollY + 'px';
+                // hoverImage.style.top = rect.top + window.scrollY + 'px';
+                hoverImage.style.top = rect.x + window.scrollY + 'px';
                 hoverImage.style.left = rect.left + 'px';
                 hoverImage.style.display = 'block';
             }
