@@ -17,7 +17,7 @@ use App\CustomFields\InitCustomFields;
 
 
 add_action('after_setup_theme', function () {
-    require_once(__DIR__ . '/vendor/autoload.php');
+    require_once (__DIR__ . '/vendor/autoload.php');
 
     require_once __DIR__ . '/src/StarterSite.php';
 
@@ -127,12 +127,25 @@ function webp_is_displayable($result, $path)
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 
+
+// Ensure jQuery is enqueued and create a custom script to handle image display based on menu selection. Add this to your functions.php or wherever you manage script enqueues in your theme or plugin:
+function custom_admin_kali()
+{
+    // Enqueue custom JavaScript
+    wp_enqueue_script('custom-admin-script', get_template_directory_uri() . '/assets/js/wp-custom-admin.js', array(), null, true);
+
+    // Enqueue custom CSS
+    wp_enqueue_style('custom-admin-style', get_template_directory_uri() . '/assets/css/wp-custom-admin.css', array(), null);
+}
+add_action('admin_enqueue_scripts', 'custom_admin_kali');
+
 // Add your custom CSS rules here
 add_action('admin_head', 'custom_admin_css');
 
+
 function custom_admin_css()
 {
-?>
+    ?>
     <style>
         .cf-radio-image .cf-radio__list-item {
             flex: 0 0 30% !important;
@@ -151,10 +164,11 @@ function custom_admin_css()
             padding-right: 15px !important;
         }
     </style>
-<?php
+    <?php
 }
 
-
-function carbonPostMeta($field) {
+function carbonPostMeta($field)
+{
     return carbon_get_the_post_meta($field);
 }
+
