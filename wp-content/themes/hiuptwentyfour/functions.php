@@ -17,7 +17,7 @@ use App\CustomFields\InitCustomFields;
 
 
 add_action('after_setup_theme', function () {
-    require_once (__DIR__ . '/vendor/autoload.php');
+    require_once(__DIR__ . '/vendor/autoload.php');
 
     require_once __DIR__ . '/src/StarterSite.php';
 
@@ -145,7 +145,7 @@ add_action('admin_head', 'custom_admin_css');
 
 function custom_admin_css()
 {
-    ?>
+?>
     <style>
         .cf-radio-image .cf-radio__list-item {
             flex: 0 0 30% !important;
@@ -163,12 +163,16 @@ function custom_admin_css()
         .cf-radio__list-item {
             padding-right: 15px !important;
         }
+
+        .cf-complex__tabs-item--tabbed-horizontal.cf-complex__tabs-item--current {
+            background-color: #72bcd4 !important;
+            color: #fff !important;
+        }
     </style>
-    <?php
+<?php
 }
 
 function carbonPostMeta($field)
 {
     return carbon_get_the_post_meta($field);
 }
-
