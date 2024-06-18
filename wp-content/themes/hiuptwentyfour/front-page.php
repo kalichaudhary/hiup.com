@@ -18,11 +18,6 @@ $context          = Timber::context();
 $context['posts'] = Timber::get_posts();
 $context['foo']   = 'bar';
 $context['is_front_page'] = 'true';
-$post = Timber::get_post();
-$context['fields'] = $post->meta('hiup_sections');
-
-// Optional: Debugging context
-// \Symfony\Component\VarDumper\VarDumper::dump($context);
 
 $templates        = array('front-page.twig');
 Timber::render($templates, $context);

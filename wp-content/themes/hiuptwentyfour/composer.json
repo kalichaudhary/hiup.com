@@ -17,7 +17,8 @@
   ],
   "require": {
     "timber/timber": "2.x-dev",
-    "htmlburger/carbon-fields": "^3.6"
+    "htmlburger/carbon-fields": "^3.6",
+    "iamntz/carbon-fields-urlpicker": "^3.0"
   },
   "require-dev": {
     "automattic/wordbless": "^0.4.2",
