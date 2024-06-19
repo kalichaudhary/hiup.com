@@ -166,9 +166,13 @@ class FlexibleCustomFields
                     ])
 
                     //Short Intro w/Gallery Layout
-                    ->add_fields('short_intro_gallery', 'Short Intro w/Gallery Layout', [
+                    ->add_fields('short_intro_gallery', 'Short Intro w/Products Layout', [
                         Field::make('rich_text', 'short_intro', 'Short Intro'),
-                        Field::make('media_gallery', 'gallery', 'Upload Images'),
+                        Field::make('complex', 'product_items', 'Add Products')
+                            ->set_layout('tabbed-horizontal')
+                            ->add_fields([
+                                Field::make('textarea', 'svg_product', 'SVG Product Icon HTML'),
+                            ])
                     ])
 
                     //Posts Feed Layout
@@ -176,6 +180,10 @@ class FlexibleCustomFields
                         Field::make('text', 'posts_feed_headline', 'Headline')
                             ->set_width(50),
                         Field::make('text', 'posts_feed_subheadline', 'Sub Headline')
+                            ->set_width(50),
+                        Field::make('text', 'posts_feed_more_info', 'More Info Text')
+                            ->set_width(50),
+                        Field::make('urlpicker', 'posts_feed_more_url', 'More Info URL')
                             ->set_width(50),
                         Field::make('select', 'choose_category', 'Choose Category')
                             ->add_options(self::getPostCategories()), // Populate options with post categories

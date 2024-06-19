@@ -1,51 +1,63 @@
 {% set left_half  = section.left_half_img_edit %}
 {% set right_half = section.right_half_img_edit %}
 
-{# {{ dump(left_half) }} #}
-
 <section class="overflow-hidden bg-warning bg-opacity-15 position-relative">
-
-    {% if section.left_image_or_editor == 'editor' %}
-        <!-- SVG Image -->
-        <figure class="position-absolute end-0 bottom-0 mb-0 z-index-9">
-            <img src="{{ site.theme.link }}/assets/images/element/bg-ai.svg" class="h-300px opacity-3" alt="" />
-        </figure>
-
-    {% endif %}
+    {% for item in left_half %}
+        {% if item.left_image_or_editor == 'editor' %}
+            <!-- SVG Image -->
+            <figure class="position-absolute end-0 bottom-0 mb-0 z-index-9">
+                <img src="{{ site.theme.link }}/assets/images/element/bg-ai.svg" class="h-300px opacity-3" alt="" />
+            </figure>
+        {% endif %}
+    {% endfor %}
 
     <div class="container">
         <div class="row g-4 align-items-center">
-            {% for section in left_half %}
-                {% if section.left_image_or_editor == 'editor' %}
+            {% for item in left_half %}
+                {% if item.left_image_or_editor == 'editor' %}
                     <div class="col-md-5 position-relative z-index-9">
-                        {{ section.left_editor_field |raw }}
-
-                        {% if section.left_button_url.url %}
+                        {{ item.left_editor_field | raw }}
+                        {% if item.left_button_url.url %}
                             <div class="row">
                                 <div class="col-6 col-sm-4 col-md-6 col-lg-4">
-                                    <a href="{{ section.left_button_url.url }}" class="btn btn-warning-soft mb-0 mt-3 mt-lg-0" {% if section.left_button_url.blank %} target="_blank" {% endif %}>
-                                        {{ section.left_button_url.anchor }}
+                                    <a href="{{ item.left_button_url.url }}" class="btn btn-warning-soft mb-0 mt-3 mt-lg-0" {% if item.left_button_url.blank %} target="_blank" {% endif %}>
+                                        {{ item.left_button_url.anchor }}
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
                                 </div>
                             </div>
                         {% endif %}
                     </div>
+                {% else %}
+                    {% set thumbnail = get_image(item.left_image_field) %}
+                    {% if thumbnail %}
+                        <div class="col-lg-6 position-relative order-2">
+                            <img src="{{ thumbnail.src | resize(611, 407) }}" class="position-relative rounded-4" alt="{{ thumbnail.alt }}" />
+                        </div>
+                    {% endif %}
                 {% endif %}
-
             {% endfor %}
 
-            {% for section in right_half %}
-                {% if section.right_image_or_editor == 'image' %}
-                    {% set thumbnail = get_image(section.right_image_field) %}
-                    <div class="col-md-7 text-md-end position-relative">
-                        {% if thumbnail %}
-                            <img src="{{ thumbnail.src |resize(731, 510) }}" class="position-relative rounded-4" alt="{{ thumbnail.alt }}" />
+            {% for item in right_half %}
+                {% if item.right_image_or_editor == 'image' %}
+                    {% set thumbnail = get_image(item.right_image_field) %}
+                    {% if thumbnail %}
+                        <div class="col-md-7 text-md-end position-relative">
+                            <img src="{{ thumbnail.src | resize(731, 510) }}" class="position-relative rounded-4" alt="{{ thumbnail.alt }}" />
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <div class="col-lg-6 position-relative order-1 order-lg-2">
+                        {{ item.right_editor_field | raw }}
+                        {% if item.right_button_url.url %}
+                            <a href="{{ item.right_button_url.url }}" class="btn btn-warning-soft mb-0 mt-3 mt-lg-0" {% if item.right_button_url.blank %} target="_blank" {% endif %}>
+                                {{ item.right_button_url.anchor }}
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
                         {% endif %}
                     </div>
                 {% endif %}
             {% endfor %}
-
         </div>
     </div>
 </section>
