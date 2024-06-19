@@ -5,6 +5,7 @@ namespace App\CustomFields;
 use App\CustomFields\ThemeOptionsFields;
 use App\CustomFields\FlexibleCustomFields;
 use App\CustomFields\HomepageCustomFields;
+use App\CustomFields\AboutUsFlexibleFields;
 
 class InitCustomFields
 {
@@ -19,5 +20,6 @@ class InitCustomFields
         FlexibleCustomFields::init();
         ThemeOptionsFields::init();
         HomepageCustomFields::init();
+        AboutUsFlexibleFields::init();
     }
 }
