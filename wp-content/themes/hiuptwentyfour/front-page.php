@@ -23,19 +23,17 @@ $context['category_sections'] = [];
 $current_post = Timber::get_post();
 $sections = $current_post->meta('hiup_sections');
 
-
-if ($sections) {
+if (is_array($sections) && !empty($sections)) {
     foreach ($sections as $section) {
 
         if ($section['_type'] == 'posts_feed') {
             $cat_id = $section['choose_category'] ?? '';
             if ($cat_id) {
-                // Fetch posts based on the selected category
                 $category_posts = Timber::get_posts([
-                    'category' => $cat_id,
+                    'cat' => $cat_id,
+                    'posts_per_page' => 6,
                 ]);
 
-                // Add the category and posts to the context
                 $context['category_sections'][] = [
                     'category' => $cat_id,
                     'posts'    => $category_posts,
