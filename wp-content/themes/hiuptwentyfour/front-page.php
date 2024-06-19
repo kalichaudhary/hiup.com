@@ -28,16 +28,16 @@ if ($sections) {
     foreach ($sections as $section) {
 
         if ($section['_type'] == 'posts_feed') {
-            $category = $section['choose_category'] ?? '';
-            if ($category) {
+            $cat_id = $section['choose_category'] ?? '';
+            if ($cat_id) {
                 // Fetch posts based on the selected category
                 $category_posts = Timber::get_posts([
-                    'category_name' => $category->slug,
+                    'category' => $cat_id,
                 ]);
 
                 // Add the category and posts to the context
                 $context['category_sections'][] = [
-                    'category' => $category,
+                    'category' => $cat_id,
                     'posts'    => $category_posts,
                 ];
             }
