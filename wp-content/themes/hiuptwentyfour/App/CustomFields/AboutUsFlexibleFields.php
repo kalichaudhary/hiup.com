@@ -34,17 +34,32 @@ class AboutUsFlexibleFields
                     ])
 
                     //About Image Layout
-                    ->add_fields('about_us_content_layout', 'Image Layout', [
-                        Field::make('image', 'about_us_image', 'Image 1')->set_width(33.33),
-                        Field::make('image', 'about_us_image', 'Image 3')->set_width(33.33),
-                        Field::make('image', 'about_us_image', 'Image 5')->set_width(33.33),
-                        Field::make('image', 'about_us_image', 'Image 2')->set_width(33.33),
-                        Field::make('image', 'about_us_image', 'Image 4')->set_width(33.33),
-                        Field::make('image', 'about_us_image', 'Image 6')->set_width(33.33),
+                    ->add_fields('about_us_content_layout', 'Image(2)/Column(3) Image Layout', [
+                        Field::make('complex', 'left', 'Left')
+                            ->set_duplicate_groups_allowed(false)
+                            ->set_width(33.33)
+                            ->add_fields([
+                                Field::make('image', 'image_1', 'Image 1')->set_width(33.33),
+                                Field::make('image', 'image_2', 'Image 2')->set_width(33.33),
+                            ]),
+                        Field::make('complex', 'middle', 'Middle')
+                            ->set_duplicate_groups_allowed(false)
+                            ->set_width(33.33)
+                            ->add_fields([
+                                Field::make('image', 'image_1', 'Image 1')->set_width(33.33),
+                                Field::make('image', 'image_2', 'Image 2')->set_width(33.33),
+                            ]),
+                        Field::make('complex', 'right', 'Right')
+                            ->set_duplicate_groups_allowed(false)
+                            ->set_width(33.33)
+                            ->add_fields([
+                                Field::make('image', 'image_1', 'Image 1')->set_width(33.33),
+                                Field::make('image', 'image_2', 'Image 2')->set_width(33.33),
+                            ]),
                     ])
 
-                    //Our Values Layout
-                    ->add_fields('about_us_values_layout', 'Our Values Layout', [
+                    //Steps Layout
+                    ->add_fields('about_us_values_layout', 'Steps Layout', [
                         Field::make('text', 'crb_our_values', __('Our Values Title'))->set_attribute('placeholder', 'Our Values')->set_width(33.33),
                         Field::make('text', 'crb_button_contact_us_url', __('Button Contact Us URL'))->set_attribute('placeholder', 'https://example.com/contact-us')->set_width(33.33),
                         Field::make('separator', 'crb_separator_about_us_our_values', __('3 Steps Section')),
