@@ -7,6 +7,7 @@ use App\CustomFields\HomepageFlexibleFields;
 use App\CustomFields\HomepageCustomFields;
 use App\CustomFields\AboutUsFlexibleFields;
 use App\CustomFields\ServicesFlexibleFields;
+use App\CustomFields\ContactUsFlexibleFields;
 
 class InitCustomFields
 {
@@ -23,5 +24,6 @@ class InitCustomFields
         HomepageCustomFields::init();
         AboutUsFlexibleFields::init();
         ServicesFlexibleFields::init();
+        ContactUsFlexibleFields::init();
     }
 }
