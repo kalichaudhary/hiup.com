@@ -14,103 +14,51 @@
 
 <header	class="navbar-light header-static navbar-sticky">
 	{% block header %}
-		<!-- Logo Nav START -->
 		<nav	class="navbar navbar-expand-xl">
 			<div	class="container">
-				<!-- Logo START -->
 				<a	class="navbar-brand me-0"	href="index.html">
-					<img	class="light-mode-item navbar-brand-item"	src="{{ theme.link }}/assets/images/logo-dark-36.webp"	alt="logo"></a>
-					<!-- Logo END -->
+					<img	class="light-mode-item navbar-brand-item"	src="{{ theme.link }}/assets/images/logo-dark-36.webp"	alt="logo" />
+				</a>
 
-					<!-- Responsive navbar toggler -->
-					<button	class="navbar-toggler ms-auto"	type="button"	data-bs-toggle="collapse"	data-bs-target="#navbarCollapse"	aria-controls="navbarCollapse"	aria-expanded="false"	aria-label="Toggle navigation">
-						<span	class="navbar-toggler-animation">
-							<span></span>
-							<span></span>
-							<span></span>
-						</span>
-					</button>
+				<button	class="navbar-toggler ms-auto"	type="button"	data-bs-toggle="collapse"	data-bs-target="#navbarCollapse"	aria-controls="navbarCollapse"	aria-expanded="false"	aria-label="Toggle navigation">
+					<span	class="navbar-toggler-animation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</button>
 
-					<!-- Main navbar START -->
-					<div	class="navbar-collapse collapse"	id="navbarCollapse">
-
-						<!-- Navbar Start -->
-						<ul	class="navbar-nav navbar-nav-scroll ms-auto">
-							<!-- Nav item 1 Demos -->
-							<!--  <li class="nav-item">
-								<a class="nav-link" href="vle.html">Microsoft Olive VLE</a>
-							</li> -->
-
-							<!-- Nav item 1 Component-->
-								<li	class="nav-item">	<a	class="nav-link active"	href="index.html">
-									Home
-								</a>
-							</li>
-							<!-- Nav item 2 Component-->
-							<li	class="nav-item">
-								<a	class="nav-link"	href="services.html">
-									Services
-								</a>
-							</li>
-
-							<!-- Nav item 3 Resources -->
-							<li	class="nav-item">
-								<a	class="nav-link"	href="blog.html">
-									Blog
-								</a>
-							</li>
-
-							<!-- Nav item 4 Component-->
-							<li	class="nav-item">
-								<a	class="nav-link"	href="about.html">
-									About Us
-								</a>
-							</li>
-
-							<!-- Nav item 5 Support-->
-							<!--  <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li> -->
-
-							<!-- Nav item 5 Contact-->
-								<li	class="nav-item">	<a	class="nav-link"	href="contact-us.html">
-									Contact Us
-								</a>
-							</li>
-						</ul>
-					</div>
-				<!-- Main navbar END -->
+				<div	class="navbar-collapse collapse"	id="navbarCollapse">
+					{% include "menu.twig" with {'items': menu.get_items} %}
 				</div>
-			</nav>
-			<nav	id="nav-main"	class="nav-main"	role="navigation">
-				{% include "menu.twig" with {'items': menu.get_items} %}
-			</nav>
-		{% endblock %}
-	</header>
-
-	<section id="content"	role="main"	class="content-wrapper">
-		{% if title %}
-			<h1>
-				{{ title }}
-			</h1>
-		{% endif %}
-		<div	class="wrapper">
-			{% block content %}
-				Sorry, no content
-			{% endblock %}
-		</div>
-		{% if sidebar %}
-			<aside	class="layout-sidebar">
-				{{ sidebar }}
-			</aside>
-		{% endif %}
-	</section>
-
-	{% block footer %}
-	
-		{% if is_front_page %}
-			{% include 'footer-homepage.twig' %}
-		{% endif %}
-
-		{% include 'footer.twig' %}
-		{{ function('wp_footer') }}
+			</div>
+		</nav>
 	{% endblock %}
-</body></html>
+</header>
+<main>
+	{% if title %}
+		<h1>
+			{{ title }}
+		</h1>
+	{% endif %}
+	<div	class="wrapper">
+		{% block content %}
+			Sorry, no content
+		{% endblock %}
+	</div>
+	{% if sidebar %}
+		<aside	class="layout-sidebar">
+			{{ sidebar }}
+		</aside>
+	{% endif %}
+</main>
+
+{% block footer %}
+
+	{% if is_front_page %}
+		{% include 'footer-homepage.twig' %}
+	{% endif %}
+
+	{% include 'footer.twig' %}
+	{{ function('wp_footer') }}
+{% endblock %}</body></html>

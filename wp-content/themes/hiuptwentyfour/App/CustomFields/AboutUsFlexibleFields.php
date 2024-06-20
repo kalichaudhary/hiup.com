@@ -115,27 +115,27 @@ class AboutUsFlexibleFields
                                         Field::make('text', 'crb_counter_title_one', __('Title'))->set_attribute('placeholder', 'Counter Title'),
                                         Field::make('text', 'crb_counter_number_one', __('Number'))->set_attribute('placeholder', 'Counter Number'),
                                     ]),
-                                Field::make('complex', 'counter_block', '')
-                                    ->set_duplicate_groups_allowed(false)
-                                    ->set_width(50)
-                                    ->add_fields([
-                                        Field::make('text', 'crb_counter_title_two', __('Title'))->set_attribute('placeholder', 'Counter Title'),
-                                        Field::make('text', 'crb_counter_number_two', __('Number'))->set_attribute('placeholder', 'Counter Number'),
-                                    ]),
-                                Field::make('complex', 'counter_block', '')
-                                    ->set_duplicate_groups_allowed(false)
-                                    ->set_width(50)
-                                    ->add_fields([
-                                        Field::make('text', 'crb_counter_title_three', __('Title'))->set_attribute('placeholder', 'Counter Title'),
-                                        Field::make('text', 'crb_counter_number_three', __('Number'))->set_attribute('placeholder', 'Counter Number'),
-                                    ]),
-                                Field::make('complex', 'counter_block', '')
-                                    ->set_duplicate_groups_allowed(false)
-                                    ->set_width(50)
-                                    ->add_fields([
-                                        Field::make('text', 'crb_counter_title_four', __('Title'))->set_attribute('placeholder', 'Counter Title'),
-                                        Field::make('text', 'crb_counter_number_four', __('Number'))->set_attribute('placeholder', 'Counter Number'),
-                                    ]),
+                                // Field::make('complex', 'counter_block', '')
+                                //     ->set_duplicate_groups_allowed(false)
+                                //     ->set_width(50)
+                                //     ->add_fields([
+                                //         Field::make('text', 'crb_counter_title_two', __('Title'))->set_attribute('placeholder', 'Counter Title'),
+                                //         Field::make('text', 'crb_counter_number_two', __('Number'))->set_attribute('placeholder', 'Counter Number'),
+                                //     ]),
+                                // Field::make('complex', 'counter_block', '')
+                                //     ->set_duplicate_groups_allowed(false)
+                                //     ->set_width(50)
+                                //     ->add_fields([
+                                //         Field::make('text', 'crb_counter_title_three', __('Title'))->set_attribute('placeholder', 'Counter Title'),
+                                //         Field::make('text', 'crb_counter_number_three', __('Number'))->set_attribute('placeholder', 'Counter Number'),
+                                //     ]),
+                                // Field::make('complex', 'counter_block', '')
+                                //     ->set_duplicate_groups_allowed(false)
+                                //     ->set_width(50)
+                                //     ->add_fields([
+                                //         Field::make('text', 'crb_counter_title_four', __('Title'))->set_attribute('placeholder', 'Counter Title'),
+                                //         Field::make('text', 'crb_counter_number_four', __('Number'))->set_attribute('placeholder', 'Counter Number'),
+                                //     ]),
                             ]),
                     ])
 
@@ -148,10 +148,10 @@ class AboutUsFlexibleFields
                             ->add_fields([
                                 Field::make('text', 'crb_wysiwyg_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
                                 Field::make('textarea', 'crb_wysiwyg_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 60 words'),
-                                Field::make('text', 'crb_wysiwyg_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
-                                Field::make('textarea', 'crb_wysiwyg_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 60 words'),
-                                Field::make('text', 'crb_wysiwyg_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
-                                Field::make('textarea', 'crb_wysiwyg_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 60 words'),
+                                // Field::make('text', 'crb_wysiwyg_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
+                                // Field::make('textarea', 'crb_wysiwyg_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 60 words'),
+                                // Field::make('text', 'crb_wysiwyg_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
+                                // Field::make('textarea', 'crb_wysiwyg_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 60 words'),
                             ]),
                         Field::make('complex', 'right', 'Image')
                             ->set_duplicate_groups_allowed(false)
