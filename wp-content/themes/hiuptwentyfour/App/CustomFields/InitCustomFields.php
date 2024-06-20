@@ -24,6 +24,6 @@ class InitCustomFields
         HomepageCustomFields::init();
         AboutUsFlexibleFields::init();
         ServicesFlexibleFields::init();
-        ContactUsFlexibleFields::init();
+       // ContactUsFlexibleFields::init();
     }
 }
