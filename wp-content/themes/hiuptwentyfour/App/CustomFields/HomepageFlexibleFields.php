@@ -18,7 +18,7 @@ class HomepageFlexibleFields
     {
 
         $layouts_labels = [
-            'plural_name'   => 'Layouts',
+            'plural_name' => 'Layouts',
             'singular_name' => 'Layout',
         ];
 
@@ -137,7 +137,7 @@ class HomepageFlexibleFields
                         Field::make('association', 'testimonials', __('Testimonials'))
                             ->set_types([
                                 [
-                                    'type'      => 'post',
+                                    'type' => 'post',
                                     'post_type' => 'testimonial',
                                 ]
                             ])
@@ -189,7 +189,7 @@ class HomepageFlexibleFields
                             ->add_options(self::getPostCategories()), // Populate options with post categories
                         Field::make('radio_image', 'choose_feed_layout', __('Choose Feed Layout'))
                             ->set_options([
-                                'masonry'  => get_template_directory_uri() . '/assets/layouts/masonry.png',
+                                'masonry' => get_template_directory_uri() . '/assets/layouts/masonry.png',
                                 'carousel' => get_template_directory_uri() . '/assets/layouts/carousel.png',
                             ])
 

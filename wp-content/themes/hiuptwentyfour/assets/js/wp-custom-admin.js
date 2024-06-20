@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const hoverImages = {
+        // Home Layout
         'Carousel Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/carousel-layout.webp',
         'Services Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/service-layout.webp',
         'Image and Editor Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/image_editor-layout.webp',
@@ -7,6 +8,18 @@ document.addEventListener("DOMContentLoaded", function () {
         'Testimonials Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/testimonials-layout.webp',
         'Counters Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/counters_layout.webp',
         'Short Intro w/Products Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/news-layout.webp',
+        'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp',
+        // About us Layout
+        'Wysiwyg Editor - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor-layout.webp',
+        'Image(2)/Column(3) Image - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_Image_column_Image-layout.webp',
+        'Steps - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_steps-layout.webp',
+        'Wysiwyg Editor, Image, Counter - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor_image_counter-layout.webp',
+        'Wysiwyg Editor Image - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor_image-layout.webp',
+        'Brand Logos - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_brand_logos-layout.webp',
+        'Award and Team - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_award_and_team-layout.webp',
+        'Action Box - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_action_box-layout.webp',
+
+        // Blog Page Layout
         'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp'
     };
 
@@ -28,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
         item.addEventListener('mouseenter', function () {
             if (!imageHiddenByClick) {
                 const rect = item.getBoundingClientRect();
-                // hoverImage.style.top = rect.top + window.scrollY + 'px';
-                hoverImage.style.top = rect.x + window.scrollY + 'px';
+                hoverImage.style.top = rect.top + window.scrollY + 'px';
+                // hoverImage.style.top = rect.x + window.scrollY + 'px';
                 hoverImage.style.left = rect.left + 'px';
                 hoverImage.style.display = 'block';
             }
