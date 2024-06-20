@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         'Preamble and Video Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/preamble_video-layout.webp',
         'Testimonials Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/testimonials-layout.webp',
         'Counters Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/counters_layout.webp',
-        'Short Intro w/Gallery Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/news-layout.webp',
+        'Short Intro w/Products Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/news-layout.webp',
         'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp'
     };
 
