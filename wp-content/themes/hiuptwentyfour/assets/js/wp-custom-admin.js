@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
         'Brand Logos - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_brand_logos-layout.webp',
         'Award and Team - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_award_and_team-layout.webp',
         'Action Box - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_action_box-layout.webp',
+
+        // Blog Page Layout
+        'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp'
     };
 
     const listItems = document.querySelectorAll('.cf-complex__inserter-item');

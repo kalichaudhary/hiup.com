@@ -1,7 +1,6 @@
 <?php
 namespace App\CustomFields;
 
-
 trait PostCategoriesTrait {
     private static function getPostCategories() {
         $categories = get_categories();

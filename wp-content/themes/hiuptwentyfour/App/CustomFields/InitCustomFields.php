@@ -3,9 +3,10 @@
 namespace App\CustomFields;
 
 use App\CustomFields\ThemeOptionsFields;
-use App\CustomFields\FlexibleCustomFields;
+use App\CustomFields\HomepageFlexibleFields;
 use App\CustomFields\HomepageCustomFields;
 use App\CustomFields\AboutUsFlexibleFields;
+use App\CustomFields\ServicesFlexibleFields;
 
 class InitCustomFields
 {
@@ -17,9 +18,10 @@ class InitCustomFields
     public static function registerFields()
     {
         // Initialize each custom fields class
-        FlexibleCustomFields::init();
+        HomepageFlexibleFields::init();
         ThemeOptionsFields::init();
         HomepageCustomFields::init();
         AboutUsFlexibleFields::init();
+        ServicesFlexibleFields::init();
     }
 }

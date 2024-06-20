@@ -6,7 +6,7 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 
-class FlexibleCustomFields
+class HomepageFlexibleFields
 {
     use PostCategoriesTrait;
     public static function init()
