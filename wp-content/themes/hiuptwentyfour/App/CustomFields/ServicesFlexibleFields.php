@@ -63,6 +63,8 @@ class ServicesFlexibleFields
 
                     // Image or Editor Layout consists of Reviews
                     ->add_fields('image_wysiwyg', 'Images w/Reviews or Editor Layout', [
+                        Field::make( 'checkbox', 'image_wysiwyg_bg', __( 'Enable White Background' ) )
+                        ->set_option_value( 'yes' ),
                         Field::make('complex', 'service_left_half_img_edit', 'Left Block')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(50)
