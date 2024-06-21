@@ -20,7 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
         'Action Box - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_action_box-layout.webp',
 
         // Blog Page Layout
-        'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp'
+        'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp',
+
+        // Blog Page Layout
+        'Header content - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_header_layout.webp',
+        'Location Card - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_location_card_layout.webp',
+        'Contact Form Container  - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_form_layout.webp',
+        'Map - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_map_layout.webp'
     };
 
     const listItems = document.querySelectorAll('.cf-complex__inserter-item');

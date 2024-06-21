@@ -77,8 +77,10 @@ class ContactUsFlexibleFields
 
                     //Map - Layout
                     ->add_fields('contact_us_map_layout', 'Map - Layout', [
+                        Field::make('text', 'map_key', __('Map key'))->set_attribute('placeholder', 'Map "your_google_maps_api_key_here"')->set_width(33.33),
+                        Field::make('text', 'map_lat', __('Map Latitude'))->set_attribute('placeholder', 'Map Latitude - Like: 40.7128')->set_width(33.33),
+                        Field::make('text', 'map_lng', __('Map Longitude'))->set_attribute('placeholder', 'Map Longitude - Like: -74.006')->set_width(33.33),
                         Field::make('map', 'crb_map_location', __('Map'))
-
                     ])
 
 
