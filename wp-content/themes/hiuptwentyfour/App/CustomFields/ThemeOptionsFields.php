@@ -21,10 +21,10 @@ class ThemeOptionsFields
                 __('General Settings'),
                 array(
                     Field::make('separator', 'crb_separator_common_header', __('Header Settings')),
-                    Field::make('text', 'crb_visit_time', __('Visit time'))->set_width(33.33),
-                    Field::make('text', 'crb_phone_number', __('Phone No.'))->set_width(33.33),
+                    Field::make('text', 'crb_visit_time', __('Visit time'))->set_width(33.33)->set_attribute('placeholder', 'Enter time like: Mon-Fri 9:00-6:00'),
+                    Field::make('text', 'crb_phone_number', __('Phone No.'))->set_width(33.33)->set_attribute('placeholder', 'Enter Phone No. like: +977-1234567890'),
+                    Field::make('image', 'header_logo', __('Header Logo'))->set_help_text('Recommended Aspect Ratio:103/22, Eg. 103px/22px')->set_width(100),
                     Field::make('separator', 'crb_separator_common_logo', __('Footer Settings')),
-                    Field::make('image', 'header_logo', __('Header Logo'))->set_help_text('Recommended Aspect Ratio:103/22, Eg. 103px/22px')->set_width(33.33),
                     Field::make('image', 'footer_logo', __('Logo'))->set_help_text('Recommended Aspect Ratio:1/1, Eg. 40px/40px')->set_width(33.33),
                     Field::make('image', 'powered_by_logo', __('Powered By Logo'))->set_help_text('Recommended Aspect Ratio:137/40, Eg. 137px/40px')->set_width(33.33),
                     Field::make('text', 'copyright_text', __('Copyright Text')),
