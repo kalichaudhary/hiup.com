@@ -208,11 +208,11 @@ class AboutUsFlexibleFields
                                 Field::make('text', 'crb_action_box_avatar_name', __('Name'))->set_attribute('placeholder', 'Avatar Name'),
                                 Field::make('text', 'crb_action_box_avatar_designation', __('Designation'))->set_attribute('placeholder', 'Avatar Designation'),
                             ]),
-                        Field::make('complex', 'middle', 'Middle - Wysiwyg Description')
+                        Field::make('complex', 'middle', 'Middle - Description')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(33.33)
                             ->add_fields([
-                                Field::make('textarea', 'crb_action_box_wysiwyg_description', __('Wysiwyg Description'))->set_attribute('placeholder', 'Wysiwyg Description - Max 50 words'),
+                                Field::make('textarea', 'crb_action_box_wysiwyg_description', __('Description'))->set_attribute('placeholder', 'Description - Max 50 words'),
                             ]),
                         Field::make('complex', 'right', 'Right - Action Decoration Image')
                             ->set_duplicate_groups_allowed(false)
