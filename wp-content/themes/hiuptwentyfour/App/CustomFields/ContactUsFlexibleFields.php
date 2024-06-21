@@ -37,14 +37,17 @@ class ContactUsFlexibleFields
 
                     //Contact location - Card Layout
                     ->add_fields('contact_us_location_card_layout', 'Location Card - Layout', [
-                        Field::make('complex', 'left', 'Location')
-                            ->set_width(33.33)
+                        Field::make('complex', 'location_card', 'Location')
                             ->add_fields([
-                                Field::make('image', 'country_logo', 'Country Logo'),
-                                Field::make('text', 'contact_us_country_name', __('Country Name'))->set_attribute('placeholder', 'Country Name - Like: United States')->set_width(25),
-                                Field::make('text', 'contact_us_address', __('Address'))->set_attribute('placeholder', 'Address - Like: 123 Main St, Anytown, USA 12345')->set_width(25),
-                                Field::make('text', 'contact_us_telephone', __('Telephone'))->set_attribute('placeholder', 'Telephone - Like: (123) 456-7890')->set_width(25),
-                                Field::make('text', 'contact_us_email', __('Email'))->set_attribute('placeholder', 'Email - Like: info@example.com')->set_width(25),
+                                Field::make('image', 'country_logo', 'Country Logo')->set_help_text(__('Country Logo - Recommended Aspect Ratio:1/1, Eg. 48px/48px'))->set_width(33.33),
+                                Field::make('text', 'contact_us_heading_five', __('Heading 5'))->set_attribute('placeholder', 'Heading - Like: Nepal')->set_width(33.33),
+                                Field::make('text', 'contact_us_heading_six', __('Heading 6'))->set_attribute('placeholder', 'Sub Heading - Like: Product Enquiry')->set_width(33.33),
+                                Field::make('complex', 'location_card', 'List Item')
+                                    ->set_layout('tabbed-horizontal')
+                                    ->add_fields([
+                                        Field::make('image', 'icon', 'Icon')->set_width(25)->set_help_text('Recommended Aspect Ratio:1/1, Eg. 16px/16px'),
+                                        Field::make('text', 'text_list', __('Text List'))->set_attribute('placeholder', 'Text List - Max: 15 Words')->set_width(75),
+                                    ]),
                                 Field::make('separator', 'crb_separator', __('Active/Inactive Location ')),
                                 Field::make('checkbox', 'crb_show_content', __('Active/Inactive'))->set_option_value('yes')
                             ]),
