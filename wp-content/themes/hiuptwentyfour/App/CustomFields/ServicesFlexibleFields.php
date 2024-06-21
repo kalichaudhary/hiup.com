@@ -39,6 +39,7 @@ class ServicesFlexibleFields
                             ->add_fields([
                                 Field::make('text', 'service_headline', 'Headline'),
                                 Field::make('text', 'service_subheadline', 'Sub Headline'),
+                                Field::make('text', 'service_preamble', 'Preamble'),
                                 Field::make('rich_text', 'wysiwyg_editor', 'WYSIWYG Editor'),
                                 Field::make('urlpicker', 'button_url', 'Button URL')
                             ]),
