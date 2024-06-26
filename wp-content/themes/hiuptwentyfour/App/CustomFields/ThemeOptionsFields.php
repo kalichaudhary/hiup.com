@@ -71,7 +71,34 @@ class ThemeOptionsFields
             ->add_tab(
                 __('Under Construction'),
                 array(
-                    Field::make('rich_text', 'under_construction', __('Under Construction Message')),
+                    Field::make('checkbox', 'enable_under_construction', 'Enable Under Construction')->set_help_text('Under Construction Message or Page for your under construction display. Every page and post will redirect to your selected page for non-logged in users.'),
+                    Field::make('complex', 'under_construction_settings', 'Under Construction Settings')
+                        ->set_duplicate_groups_allowed(false)
+                        ->add_fields([
+                            Field::make('complex', 'choose_rich_text', 'Choose Rich Text')
+                                ->set_width(50)
+                                ->add_fields([
+                                    Field::make('rich_text', 'under_construction', __('Under Construction Message')),
+                                ]),
+
+                            Field::make('complex', 'choose_page', 'Choose Page')
+                                ->set_width(50)
+                                ->add_fields([
+                                    Field::make('multiselect', 'under_construction_page', __('Choose an under Construction Page'))
+                                        ->add_options(
+                                            array(
+                                                'under_construction_page' => 'Under Construction Page',
+                                            )
+                                        )
+                                ]),
+                        ])->set_conditional_logic(
+                            array(
+                                array(
+                                    'field' => 'enable_under_construction',
+                                    'value' => true,
+                                )
+                            )
+                        ),
                 )
             );
     }
