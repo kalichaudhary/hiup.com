@@ -82,6 +82,7 @@ class ThemeOptionsFields
                                 ]),
 
                             Field::make('complex', 'choose_page', 'Choose Page')
+                                ->set_duplicate_groups_allowed(false)
                                 ->set_width(50)
                                 ->add_fields([
                                     Field::make('multiselect', 'under_construction_page', __('Choose an under Construction Page'))
