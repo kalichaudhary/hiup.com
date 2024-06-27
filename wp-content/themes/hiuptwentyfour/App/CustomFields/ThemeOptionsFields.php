@@ -21,7 +21,7 @@ class ThemeOptionsFields
                 __('General Settings'),
                 array(
                     Field::make('separator', 'crb_separator_common_header', __('Header Settings')),
-                    Field::make('text', 'crb_visit_time', __('Visit time'))->set_width(33.33)->set_attribute('placeholder', 'Enter time like: Mon-Fri 9:00-6:00'),
+                    Field::make('text', 'crb_visit_time', __('Visit time'))->set_width(33.33)->set_attribute('placeholder', 'Enter time like: Mon-Fri 9:00AM-6:00PM'),
                     Field::make('text', 'crb_phone_number', __('Phone No.'))->set_width(33.33)->set_attribute('placeholder', 'Enter Phone No. like: +977-1234567890'),
                     Field::make('image', 'header_logo', __('Header Logo'))->set_help_text('Recommended Aspect Ratio:103/22, Eg. 103px/22px')->set_width(100),
                     Field::make('separator', 'crb_separator_common_logo', __('Footer Settings')),
@@ -65,6 +65,17 @@ class ThemeOptionsFields
                         ->add_fields([
                             Field::make('header_scripts', 'crb_header_scripts', __('Header Scripts')),
                             Field::make('footer_scripts', 'crb_footer_scripts', __('Footer Scripts'))
+                        ]),
+                )
+            )
+            ->add_tab(
+                __('Cookies Settings'),
+                array(
+                    Field::make('complex', 'cookies_settings', 'Cookies Settings')
+                        ->set_layout('tabbed-horizontal')
+                        ->add_fields([
+                            Field::make('header_scripts', 'crb_header_cookies', __('Header Cookies Scripts')),
+                            Field::make('footer_scripts', 'crb_footer_cookies', __('Footer Cookies Scripts'))
                         ]),
                 )
             )
