@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    {% for section in post.meta('about_us_sections') %}
+
+        {% include "layouts/about/" ~ section._type ~ ".twig" ignore missing %}
+
+    {% endfor %}
+
+{% endblock %}
