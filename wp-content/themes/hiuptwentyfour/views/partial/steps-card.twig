@@ -1,0 +1,13 @@
+{% set img = get_image(image) %}
+
+{% if img %}
+    <div class="icon-xxl bg-body shadow mx-auto rounded-circle mb-3">
+        <img src="{{ img.src | resize(63,56) }}" alt="{{ img.alt }}" />
+    </div>
+{% endif %}
+<h5>
+    {{ headline }}
+</h5>
+<p class="text-truncate-2 pb-0">
+    {{ description }}
+</p>

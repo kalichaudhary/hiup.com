@@ -1,0 +1,20 @@
+{% set images = section.image_brand %}
+
+{% if images is not empty %}
+    <section class="bg-light">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                {% for item in images %}
+                    {% set image = get_image(item) %}
+                    {% if image is not empty %}
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <div class="p-4 grayscale text-center">
+                                <img src="{{ image.src }}" alt="{{ image.alt }}" />
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

@@ -30,12 +30,8 @@ class AboutUsFlexibleFields
                     ->set_collapsed(true)
 
                     //About Content Layout
-                    ->add_fields('about_us_header_content_layout', 'Header Content - Layout', [
-                        Field::make('textarea', 'about_us_hd_content', __('Header Content'))->set_attribute('placeholder', 'Header Content - max 36 words'),
-                    ])
-
-                    //About Image Layout
-                    ->add_fields('about_us_content_layout', 'Image(2)/Column(3) Image - Layout', [
+                    ->add_fields('textarea_layout', 'TextArea Editor & Image  - Layout', [
+                        Field::make('textarea', 'about_us_hd_content', __('TextArea Editor')),
                         Field::make('complex', 'left', 'Left')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(33.33)
@@ -53,8 +49,8 @@ class AboutUsFlexibleFields
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(33.33)
                             ->add_fields([
-                                Field::make('text', 'quote_title', __('Title'))->set_attribute('placeholder', 'Title - max 3 words'),
-                                Field::make('text', 'quote_description', __('Description'))->set_attribute('placeholder', 'Description - max 12 words'),
+                                Field::make('text', 'quote_title', __('Title')),
+                                Field::make('text', 'quote_description', __('Description')),
                                 Field::make('image', 'image_right', 'Right Image')->set_help_text('Recommended Aspect Ratio:16/9, Eg. 1600px/900px'),
                             ]),
                     ])
@@ -62,7 +58,7 @@ class AboutUsFlexibleFields
                     //Steps Layout
                     ->add_fields('steps_layout', 'Steps - Layout', [
                         Field::make('text', 'crb_title', __('Title'))->set_attribute('placeholder', 'Title')->set_width(33.33),
-                        Field::make('text', 'crb_button_contact_us_url', __('Button URL (Contact Us)'))->set_attribute('placeholder', 'https://example.com/contact-us')->set_width(33.33),
+                        Field::make('urlpicker', 'crb_button_contact_us_url', __('Button URL')),
                         Field::make('separator', 'crb_separator_about_us', __('3 Steps Section')),
 
                         Field::make('complex', 'steps_one', 'Step 1')
@@ -111,13 +107,13 @@ class AboutUsFlexibleFields
                                 Field::make('complex', 'counter_items', 'Counter Items')
                                     ->set_layout('tabbed-horizontal')
                                     ->add_fields([
+                                        Field::make('text', 'counter_label', 'Counter Label')
+                                            ->set_default_value('Dedicated People'),
                                         Field::make('text', 'counter_end', 'Total Counter')
                                             ->set_default_value('100'),
                                         Field::make('text', 'counter_suffix', 'Counter Suffix')
                                             ->set_default_value('+')
                                             ->set_help_text('Suffix for the counter, e.g., +, K+, M+'),
-                                        Field::make('text', 'counter_label', 'Counter Label')
-                                            ->set_default_value('Dedicated People'),
                                     ]),
                             ]),
                     ])
@@ -141,12 +137,8 @@ class AboutUsFlexibleFields
                     ])
 
                     // Brand Layout
-                    ->add_fields('about_us_brand_layout', 'Brand Logos - Layout', [
-                        Field::make('complex', 'brand_logos', 'Brand Logos')
-                            ->set_layout('tabbed-horizontal')
-                            ->add_fields([
-                                Field::make('image', 'image_brand', 'Brand Logo')->set_help_text('Recommended Aspect Ratio:4/1, Eg. 100px/25px'),
-                            ]),
+                    ->add_fields('about_us_brand_layout', 'Clients Logos - Layout', [
+                        Field::make('media_gallery', 'image_brand', 'Clients Logo')->set_help_text('Recommended Aspect Ratio:4/1, Eg. 100px/25px'),
                     ])
 
 
@@ -158,47 +150,35 @@ class AboutUsFlexibleFields
                             ->add_fields([
                                 Field::make('image', 'image_block', 'Image')->set_help_text('Recommended Aspect Ratio:6/7, Eg. 300px/350px'),
                                 Field::make('text', 'crb_award_team_title', __('Title'))->set_attribute('placeholder', 'Awards`N Stuff -Title'),
-                                Field::make('textarea', 'crb_award_team_card_award_description', __('Award Description'))->set_attribute('placeholder', 'Award Description - Max 3 words'),
+                                Field::make('rich_text', 'crb_award_team_card_award_description', __('Award Description'))->set_attribute('placeholder', 'Award Description - Max 3 words'),
                                 Field::make('text', 'crb_award_team_card_award_year', __('Award Year'))->set_attribute('placeholder', 'Award Year'),
                             ]),
                         Field::make('complex', 'middle', 'Meat Our Team')
                             ->set_width(33.33)
+                            ->set_layout('tabbed-horizontal')
                             ->add_fields([
                                 Field::make('image', 'meat_our_team_image', 'Team Avatar')->set_help_text('Recommended Aspect Ratio:1/1, Eg. 300px/300px'),
                                 Field::make('text', 'crb_avatar_name', __('Name'))->set_attribute('placeholder', 'Avatar Name'),
                                 Field::make('text', 'crb_avatar_designation', __('Designation'))->set_attribute('placeholder', 'Avatar Designation')->set_width(44.44),
-                                Field::make('text', 'crb_avatar_rating', __('Rating'))->set_attribute('placeholder', 'Avatar Rating')->set_width(22.22),
                             ]),
-                        Field::make('complex', 'right', 'Meat Our Team')
-                            ->set_duplicate_groups_allowed(false)
-                            ->set_width(33.33)
-                            ->add_fields([
-                                Field::make('text', 'crb_join_team_url', __('Join Team URL'))->set_attribute('placeholder', 'Join our team'),
-                            ]),
+                        Field::make('urlpicker', 'crb_join_team_url', __('Join Team URL'))
+                            ->set_width(33.33),
+
                     ])
 
                     //Action box Layout
-                    ->add_fields('about_us_action_box_layout', 'Action Box - Layout', [
-                        Field::make('complex', 'left', 'Left - Action Avatar')
+                    ->add_fields('about_us_action_box_layout', 'Introduction - Layout', [
+                        Field::make('complex', 'left', 'Avatar')
                             ->set_duplicate_groups_allowed(false)
-                            ->set_width(33.33)
+                            ->set_width(50)
                             ->add_fields([
                                 Field::make('image', 'action_avatar_image', 'Action Avatar')->set_help_text('Recommended Aspect Ratio:1/1, Eg. 300px/300px'),
                                 Field::make('text', 'crb_action_box_avatar_name', __('Name'))->set_attribute('placeholder', 'Avatar Name'),
                                 Field::make('text', 'crb_action_box_avatar_designation', __('Designation'))->set_attribute('placeholder', 'Avatar Designation'),
                             ]),
-                        Field::make('complex', 'middle', 'Middle - Description')
-                            ->set_duplicate_groups_allowed(false)
-                            ->set_width(33.33)
-                            ->add_fields([
-                                Field::make('textarea', 'crb_action_box_wysiwyg_description', __('Description'))->set_attribute('placeholder', 'Description - Max 50 words'),
-                            ]),
-                        Field::make('complex', 'right', 'Right - Action Decoration Image')
-                            ->set_duplicate_groups_allowed(false)
-                            ->set_width(33.33)
-                            ->add_fields([
-                                Field::make('image', 'action_decoration_image', 'Action Decoration Image (PNG format)')->set_help_text('Recommended Aspect Ratio:120/163, Eg. 120px/163px'),
-                            ]),
+                        Field::make('rich_text', 'crb_action_box_wysiwyg_description', __('Introduction'))
+                        ->set_width(50),
+
                     ])
 
 
