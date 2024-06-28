@@ -7,7 +7,7 @@ use Carbon_Fields\Field;
 
 class ContactUsFlexibleFields
 {
-
+    use ContactForm7Traits;
     public static function init()
     {
         self::registerContactUsPageFields();
@@ -25,37 +25,84 @@ class ContactUsFlexibleFields
             ->where('post_template', '=', 'template-contact.php')
             ->set_priority('high')
             ->add_fields([
-                Field::make('complex', 'about_us_sections', '')
+                Field::make('complex', 'contact_us_sections', '')
                     ->setup_labels($layouts_labels)
                     ->set_collapsed(true)
 
-                    //Contact Header - Layout
-                    ->add_fields('contact_us_header_layout', 'Header content - Layout', [
-                        Field::make('text', 'contact_us_title', __('Contact Page Title'))->set_attribute('placeholder', 'Contact Page Title - Like: Contact Us'),
-                        Field::make('text', 'contact_us_header', __('Header content'))->set_attribute('placeholder', 'Header content - Like: Office Locations!'),
-                    ])
-
                     //Contact location - Card Layout
-                    ->add_fields('contact_us_location_card_layout', 'Location Card - Layout', [
+                    ->add_fields('contact_us_location_card_layout', 'Location Card Layout', [
+                        Field::make('text', 'contact_us_title', __('Headline')),
                         Field::make('complex', 'location_card', 'Location')
+                            ->set_layout('tabbed-horizontal')
                             ->add_fields([
-                                Field::make('image', 'country_logo', 'Country Logo')->set_help_text(__('Country Logo - Recommended Aspect Ratio:1/1, Eg. 48px/48px'))->set_width(33.33),
-                                Field::make('text', 'contact_us_heading_five', __('Heading 5'))->set_attribute('placeholder', 'Heading - Like: Nepal')->set_width(33.33),
-                                Field::make('text', 'contact_us_heading_six', __('Heading 6'))->set_attribute('placeholder', 'Sub Heading - Like: Product Enquiry')->set_width(33.33),
-                                Field::make('complex', 'location_card', 'List Item')
-                                    ->set_layout('tabbed-horizontal')
+                                Field::make('image', 'country_logo', 'Country Logo')->set_help_text(__('Country Logo - Recommended Aspect Ratio:1/1, Eg. 48px/48px'))
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '!='
+                                        ]
+                                    )),
+                                Field::make('text', 'contact_us_country', __('Country'))
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '!='
+                                        ]
+                                    )),
+                                Field::make('text', 'contact_us_location', __('Location'))
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '!='
+                                        ]
+                                    )),
+                                Field::make('text', 'contact_us_phone', __('Contact Number'))
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '!='
+                                        ]
+                                    )),
+                                Field::make('text', 'active_contact_headline', __('Main Headline'))
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '='
+                                        ]
+                                    )),
+                                Field::make('complex', 'contact_email_repeater', 'Contact Info Repeater')
                                     ->add_fields([
-                                        Field::make('image', 'icon', 'Icon')->set_width(25)->set_help_text('Recommended Aspect Ratio:1/1, Eg. 16px/16px'),
-                                        Field::make('text', 'text_list', __('Text List'))->set_attribute('placeholder', 'Text List - Max: 15 Words')->set_width(75),
-                                    ]),
-                                Field::make('separator', 'crb_separator', __('Active/Inactive Location ')),
-                                Field::make('checkbox', 'crb_show_content', __('Active/Inactive'))->set_option_value('yes')
+                                        Field::make('text', 'contact_us_headline', __('Headline')),
+                                        Field::make('text', 'contact_us_email', __('Email Address')),
+                                    ])
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '='
+                                        ]
+                                    )),
+                                Field::make('text', 'contact_us_email', __('Email Address'))
+                                    ->set_conditional_logic(array(
+                                        [
+                                            'field' => 'active_contact',
+                                            'value' => true,
+                                            'compare' => '!='
+                                        ]
+                                    )),
+                                Field::make('checkbox', 'active_contact', __('Set as Active Contact Details'))
+                                    ->set_option_value('no')
                             ]),
 
                     ])
 
                     //Contact Form -  Layout
-                    ->add_fields('contact_us_form_layout', 'Contact Form Container  - Layout', [
+                    ->add_fields('contact_us_form_layout', 'Contact Form Container Layout', [
                         Field::make('complex', 'left', 'Left')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(33.33)
@@ -64,36 +111,35 @@ class ContactUsFlexibleFields
                                 Field::make('separator', 'crb_separator', __('Follow us on: Social Media')),
                                 Field::make('complex', 'left_sub', '')
                                     ->add_fields([
-                                        Field::make('image', 'social_icon', 'Social Icon')->set_width(20),
-                                        Field::make('text', 'social_url', __('Social URL'))->set_attribute('placeholder', 'https://example.com')->set_width(70),
+                                        Field::make('select', 'social_icon', 'Social Icon')
+                                            ->set_options(array(
+                                                'fa-facebook-square' => 'Facebook',
+                                                'fa-instagram'       => 'Instagram',
+                                                'fa-twitter'         => 'Twitter',
+                                                'fa-linkedin-in'     => 'LinkedIn',
+                                                'fa-dribbble'        => 'Dribbble',
+                                                'fa-pinterest'       => 'Pinterest',
+                                            ))
+                                            ->set_width(20),
+                                        Field::make('text', 'social_url', __('Social URL'))->set_attribute('placeholder', 'https://facebook.com')->set_width(70),
                                     ]),
                             ]),
                         Field::make('complex', 'right', 'Right')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(33.33)
                             ->add_fields([
-                                Field::make('text', 'contact_title', __('Contact Form Title'))->set_attribute('placeholder', 'Contact Form Title'),
-                                Field::make('textarea', 'contact_description', __('Contact Form Description'))->set_attribute('placeholder', 'Description - max 60 words'),
+                                Field::make('text', 'contact_title', __('Contact Form Title')),
+                                Field::make('textarea', 'contact_description', __('Contact Form Description')),
+                                Field::make('select', 'choose_form', 'Choose Form')
+                                    ->add_options(self::getContactForms7()),
                             ]),
                     ])
 
 
-                    //Map - Layout
-                    ->add_fields('contact_us_map_layout', 'Map - Layout', [
-                        Field::make('text', 'map_key', __('Map key'))->set_attribute('placeholder', 'Map "your_google_maps_api_key_here"')->set_width(33.33),
-                        Field::make('text', 'map_lat', __('Map Latitude'))->set_attribute('placeholder', 'Map Latitude - Like: 40.7128')->set_width(33.33),
-                        Field::make('text', 'map_lng', __('Map Longitude'))->set_attribute('placeholder', 'Map Longitude - Like: -74.006')->set_width(33.33),
-                        Field::make('map', 'crb_map_location', __('Map'))
+                    //Map 
+                    ->add_fields('contact_us_map_layout', 'Map Layout', [
+                        Field::make('textarea', 'contact_us_map', __('Add Iframe for Map'))
                     ])
-
-
-                // ->add_fields(
-                //     array(
-                //         Field::make('map', 'crb_map_location', __('Map'))
-                //             ->set_key('your_google_maps_api_key_here')  
-                //             ->set_help_text(__('Drag and drop the pin on the map to select location'))
-                //     )
-                // )
 
             ]);
     }

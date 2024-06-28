@@ -1,9 +1,44 @@
-{% extends "tease.twig" %}
-
 {% block content %}
-	<h2 class="h2"><a href="{{post.link}}">{{ post.title }}</a></h2>
-		<p>{{ post.excerpt({ words:5, read_more: "Keep reading" }) }}</p>
-		{% if post.thumbnail.src %}
-			<img src="{{ post.thumbnail.src }}" />
-		{% endif %}
-{% endblock %}
+	<div	class="col-sm-6 col-lg-4 grid-item">
+		<div	class="card bg-transparent">
+			<div	class="overflow-hidden rounded-3">
+				{% if post.thumbnail.src %}
+					<img	src="{{ post.thumbnail.src }}"	class="card-img"	alt="{{ post.thumbnail.alt }}">
+					{% endif %}
+					<!-- Overlay -->
+					<div	class="bg-overlay bg-dark opacity-4"></div>
+					<div	class="card-img-overlay d-flex align-items-start p-3">
+						<!-- badge -->
+						<a	href="#"	class="badge bg-danger text-white">
+							Student life
+						</a>
+					</div>
+				</div>
+
+				<!-- Card body -->
+				<div	class="card-body px-3">
+					<!-- Title -->
+					<h5	class="card-title">
+						<a href="#">
+							{{post.title}}
+						</a>
+					</h5>
+					<p	class="text-truncate-2">
+						{{ post.excerpt({ words:25 }) }}
+					</p>
+					<!-- Info -->
+					<div	class="d-flex justify-content-between">
+						<h6	class="mb-0">
+							<a	href="#">
+								Frances Guerrero
+							</a>
+						</h6>
+						<span	class="small">
+							30M Ago
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+	

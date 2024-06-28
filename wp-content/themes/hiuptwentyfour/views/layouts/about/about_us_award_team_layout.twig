@@ -47,7 +47,7 @@
                         </h2>
 
                         {% if section.crb_join_team_url.url %}
-                            <a href="{{ section.crb_join_team_url.url }}" class="btn btn-light mt-2" {% if section.crb_join_team_url.blank %} target="_blank" {% endif %}>
+                            <a href="{{ section.crb_join_team_url.url | esc_url }}" class="btn btn-light mt-2" {% if section.crb_join_team_url.blank %} target="_blank" {% endif %}>
                                 {{ section.crb_join_team_url.anchor }}
                             </a>
                         {% endif %}

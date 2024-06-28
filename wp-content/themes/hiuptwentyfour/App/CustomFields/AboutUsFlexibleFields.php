@@ -30,7 +30,7 @@ class AboutUsFlexibleFields
                     ->set_collapsed(true)
 
                     //About Content Layout
-                    ->add_fields('textarea_layout', 'TextArea Editor & Image  - Layout', [
+                    ->add_fields('textarea_layout', 'TextArea Editor & Image Layout', [
                         Field::make('textarea', 'about_us_hd_content', __('TextArea Editor')),
                         Field::make('complex', 'left', 'Left')
                             ->set_duplicate_groups_allowed(false)
@@ -56,7 +56,7 @@ class AboutUsFlexibleFields
                     ])
 
                     //Steps Layout
-                    ->add_fields('steps_layout', 'Steps - Layout', [
+                    ->add_fields('steps_layout', 'Steps Layout', [
                         Field::make('text', 'crb_title', __('Title'))->set_attribute('placeholder', 'Title')->set_width(33.33),
                         Field::make('urlpicker', 'crb_button_contact_us_url', __('Button URL')),
                         Field::make('separator', 'crb_separator_about_us', __('3 Steps Section')),
@@ -88,7 +88,7 @@ class AboutUsFlexibleFields
                     ])
 
                     //Counter Layout
-                    ->add_fields('about_us_image_counter_layout', 'Text, Image, Counter - Layout', [
+                    ->add_fields('about_us_image_counter_layout', 'Text, Image, Counter Layout', [
                         Field::make('text', 'crb_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
                         Field::make('textarea', 'crb_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 50 words'),
 
@@ -120,7 +120,7 @@ class AboutUsFlexibleFields
 
 
                     //Vision Layout
-                    ->add_fields('about_us_image_layout', 'Left Title/Description, Right Image - Layout', [
+                    ->add_fields('about_us_image_layout', 'Left Title/Description, Right Image Layout', [
                         Field::make('complex', 'left', 'Title and Description')
                             ->set_width(60)
                             ->add_fields([
@@ -137,13 +137,13 @@ class AboutUsFlexibleFields
                     ])
 
                     // Brand Layout
-                    ->add_fields('about_us_brand_layout', 'Clients Logos - Layout', [
+                    ->add_fields('about_us_brand_layout', 'Clients Logos Layout', [
                         Field::make('media_gallery', 'image_brand', 'Clients Logo')->set_help_text('Recommended Aspect Ratio:4/1, Eg. 100px/25px'),
                     ])
 
 
                     //Award and Team Layout
-                    ->add_fields('about_us_award_team_layout', 'Award and Team - Layout', [
+                    ->add_fields('about_us_award_team_layout', 'Award and Team Layout', [
                         Field::make('complex', 'left', 'Awarded Team')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(33.33)
@@ -167,7 +167,7 @@ class AboutUsFlexibleFields
                     ])
 
                     //Action box Layout
-                    ->add_fields('about_us_action_box_layout', 'Introduction - Layout', [
+                    ->add_fields('about_us_action_box_layout', 'Introduction Layout', [
                         Field::make('complex', 'left', 'Avatar')
                             ->set_duplicate_groups_allowed(false)
                             ->set_width(50)
