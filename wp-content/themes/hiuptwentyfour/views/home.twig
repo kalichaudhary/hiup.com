@@ -46,11 +46,14 @@
         <div class="container">
             <div class="row g-4 filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'>
                 {% for post in posts %}
-                    {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+                    {% include 'tease-'~post.post_type~'.twig' %}
                 {% endfor %}
-            </section>
-        <!-- =======================
-        Page content END -->
 
-        {% endblock %}
-        
+            </div>
+            <div class="text-center mt-4">
+                {% include 'partial/pagination.twig' with {  
+                pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2})} %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

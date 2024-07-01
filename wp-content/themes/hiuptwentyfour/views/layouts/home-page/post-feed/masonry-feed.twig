@@ -1,50 +1,8 @@
 {% for item in category_sections %}
     {% if item.category == section.choose_category %}
         <div class="row g-4 filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'>
-
             {% for post in item.posts %}
-                <div class="col-sm-6 col-lg-4 grid-item">
-                    <div class="card bg-transparent">
-                        <div class="overflow-hidden rounded-3">
-                            {% if post.thumbnail %}
-                                <img src="{{ post.thumbnail.src|resize(407) }}" class="card-img" alt="{{ post.thumbnail.alt }}" />
-                            {% endif %}
-
-                            <div class="bg-overlay bg-dark opacity-4"></div>
-                            <div class="card-img-overlay d-flex align-items-start p-3">
-                                <!-- badge -->
-                                <a href="#" class="badge bg-danger text-white">
-                                    Student life
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Card body -->
-                        <div class="card-body px-3">
-                            <!-- Title -->
-                            <h5 class="card-title">
-                                <a href="#">
-                                    {{ post.title }}
-                                </a>
-                            </h5>
-                            <p class="text-truncate-2">
-                                {{ post.content }}
-                            </p>
-                            <!-- Info -->
-                            <div class="d-flex justify-content-between">
-                                <h6 class="mb-0">
-                                    <a href="https://www.irishtimes.com/topics/topics-7.1213540?article=true&tag_person=Brendan+Kavanagh">
-                                        Brendan
-                                        Kavanagh
-                                    </a>
-                                </h6>
-                                <span class="small">
-                                    {{ post.date|date("F j, Y") }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% include 'tease-'~post.post_type~'.twig' %}
             {% endfor %}
         </div>
     {% endif %}

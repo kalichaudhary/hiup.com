@@ -19,6 +19,8 @@ $context['posts'] = Timber::get_posts();
 $context['foo']   = 'bar';
 $templates        = ['index.twig'];
 if (is_home()) {
+	$context['total_posts']    = intval(wp_count_posts()->publish);
+	$context['posts_per_page'] = intval(get_option('posts_per_page'));
 	$templates = ['home.twig'];
 }
 Timber::render($templates, $context);

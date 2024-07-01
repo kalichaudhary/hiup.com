@@ -1,44 +1,57 @@
+{% set topic_url = post.meta('topic_url') %}
+
 {% block content %}
 	<div	class="col-sm-6 col-lg-4 grid-item">
-		<div	class="card bg-transparent">
-			<div	class="overflow-hidden rounded-3">
-				{% if post.thumbnail.src %}
-					<img	src="{{ post.thumbnail.src }}"	class="card-img"	alt="{{ post.thumbnail.alt }}">
-					{% endif %}
-					<!-- Overlay -->
+		<div	class="card {% if post.thumbnail.src %} bg-transparent {% else %} bg-light {% endif %}">
+
+			{% if post.thumbnail.src and post.meta('video_url') is empty %}
+				<div	class="overflow-hidden rounded-3">
+					<img	src="{{ post.thumbnail.src }}"	class="card-img"	alt="{{ post.thumbnail.alt }}" />
 					<div	class="bg-overlay bg-dark opacity-4"></div>
 					<div	class="card-img-overlay d-flex align-items-start p-3">
-						<!-- badge -->
-						<a	href="#"	class="badge bg-danger text-white">
-							Student life
-						</a>
-					</div>
-				</div>
-
-				<!-- Card body -->
-				<div	class="card-body px-3">
-					<!-- Title -->
-					<h5	class="card-title">
-						<a href="#">
-							{{post.title}}
-						</a>
-					</h5>
-					<p	class="text-truncate-2">
-						{{ post.excerpt({ words:25 }) }}
-					</p>
-					<!-- Info -->
-					<div	class="d-flex justify-content-between">
-						<h6	class="mb-0">
-							<a	href="#">
-								Frances Guerrero
+						{% if topic_url.url %}
+							<a	href="{{ topic_url.url | esc_url }}"	class="badge bg-danger text-white"	{% if topic_url.blank %}	target="_blank"	{% endif %}>
+								{{ topic_url.anchor }}
 							</a>
-						</h6>
-						<span	class="small">
-							30M Ago
-						</span>
+						{% endif %}
 					</div>
+
+				</div>
+			{% elseif post.meta('video_url') is not empty %}
+				<div	class="card-img-top rounded-3 overflow-hidden position-relative hover-overlay-top">
+					<div	class="ratio ratio-16x9">
+						<iframe	width="620"	height="347"	src="{{ post.meta('video_url') }}"	allow="autoplay; encrypted-media"	allowfullscreen="" />
+					</iframe>
 				</div>
 			</div>
+		{% endif %}
+
+		<div	class="card-body px-3">
+			{% if post.thumbnail.src is empty or post.meta('video_url') %}
+				{% if topic_url.url %}
+					<a	href="{{ topic_url.url | esc_url }}"	class="badge bg-success text-white mb-2"	{% if topic_url.blank %}	target="_blank"	{% endif %}>
+						{{ topic_url.anchor }}
+					</a>
+				{% endif %}
+			{% endif %}
+			<h5	class="card-title">
+				<a	href="{{ post.link }}">
+					{{ post.title }}
+				</a>
+			</h5>
+			<p	class="text-truncate-2">
+				{{ post.excerpt({ words:25 }) }}
+			</p>
+			<!-- Info -->
+			<div	class="d-flex justify-content-between">
+				<h6	class="mb-0">{# <a	href="#">
+					Frances Guerrero
+				</a> #}
+				</h6>
+				<span	class="small">
+					{{ post.date|date("F j, Y") }}
+				</span>
+			</div>
 		</div>
-	{% endblock %}
-	
+	</div>
+</div>{% endblock %}
