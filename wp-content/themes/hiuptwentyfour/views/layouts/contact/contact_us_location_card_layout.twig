@@ -1,0 +1,136 @@
+<section class="pt-5 pb-0" style="background-image:url(assets/images/element/map.svg); background-position: center left; background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-xl-6 text-center mx-auto">
+                <h6 class="text-primary">
+                    {{ post.title }}
+                </h6>
+                <h1 class="mb-4">
+                    {{ section.contact_us_title }}
+                </h1>
+            </div>
+        </div>
+
+        <!-- Contact info box -->
+        <div class="row g-4 g-md-5 mt-0 mt-lg-3">
+
+            {% for item in section.location_card %}
+
+                {% if item.active_contact == false %}
+                    {% set logo = get_image(item.country_logo) %}
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card card-body shadow py-5 text-center h-100">
+                            {% if logo %}
+                                <div class="avatar align-middle mx-auto mb-3">
+                                    <img class="avatar-img" src="{{ logo.src|resize(48,48) }}" alt="{{ logo.alt }}}" />
+                                </div>
+                            {% endif %}
+                            <h5 class="mb-3">
+                                {{ item.contact_us_country }}
+                            </h5>
+                            <ul class="list-inline mb-0">
+                                {% if item.contact_us_location %}
+                                    <li class="list-item mb-3 h6 fw-light">
+                                        <i class="fas fa-fw fa-map-marker-alt me-2 mt-1"></i>
+                                        {{ item.contact_us_location }}
+                                    </li>
+                                {% endif %}
+                                {% if item.contact_us_phone %}
+                                    <li class="list-item mb-3 h6 fw-light">
+                                        <a href="tel:{{ item.contact_us_phone }}">
+                                            <i class="fas fa-fw fa-phone-alt me-2"></i>
+                                            {{ item.contact_us_phone }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if item.contact_us_email %}
+                                    <li class="list-item mb-0 h6 fw-light">
+                                        <a href="mailto:{{ item.contact_us_email }}">
+                                            <i class="far fa-fw fa-envelope me-2"></i>
+                                            {{ item.contact_us_email }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card card-body bg-primary shadow py-5 text-center h-100">
+                            <div class="avatar align-middle mx-auto mb-3">
+                                <?xml version="1.0" encoding="utf-8"?>
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.7 48" style="enable-background:new 0 0 56.7 48;" xml:space="preserve">
+                                    <style type="text/css">
+                                .st0 {
+                                    fill: #CECECE;
+                                }
+                            </style>
+                                    <g>
+                                        <path class="st0" d="M23.1,1.9c-3.3,0.1-6.4,1-9.4,2.5c0.5,0.8,1,1.6,1.4,2.4c0.4,0.7,0,1.5-0.7,1.4c-0.3,0-0.7-0.3-0.9-0.6
+                                            c-0.5-0.7-0.9-1.6-1.4-2.4c-2.8,1.8-5.1,4-6.9,6.8c0.8,0.5,1.6,0.9,2.4,1.4c0.3,0.2,0.5,0.5,0.6,0.8c0.1,0.7-0.7,1.1-1.4,0.8
+                                            c-0.8-0.4-1.6-0.9-2.5-1.4c-1.5,2.9-2.4,6-2.5,9.4c0.9,0,1.8,0,2.7,0c0.8,0,1.2,0.4,1.2,0.9c0,0.6-0.4,0.9-1.2,0.9
+                                            c-0.9,0-1.7,0-2.6,0c-0.2,2.3,1.1,7.3,2.5,9.4c0.8-0.4,1.5-0.9,2.3-1.3c0.6-0.4,1.2-0.3,1.4,0.2c0.3,0.5,0.1,1-0.5,1.4
+                                            c-0.8,0.4-1.5,0.9-2.3,1.3c1.8,2.8,4,5,6.9,6.8c0.5-0.8,0.9-1.6,1.4-2.4c0.2-0.4,0.5-0.6,1-0.5c0.6,0.1,1,0.8,0.6,1.4
+                                            c-0.4,0.8-0.9,1.6-1.4,2.5c2.9,1.5,6,2.4,9.4,2.5c0-0.9,0-1.7,0-2.5c0-0.9,0.3-1.4,0.9-1.4c0.6,0,0.9,0.4,0.9,1.4c0,1,0,2.1,0,3.1
+                                            c0,0.9-0.3,1.2-1.2,1.2C12.4,47.9,2.8,40,0.5,28.9C-2.2,16.2,5.9,3.6,18.6,0.7c1.7-0.4,3.5-0.5,5.3-0.6C24.6,0,24.9,0.3,25,1.1
+                                        c0,1.2,0,2.4,0,3.5c0,0.7-0.4,1.1-0.9,1.1c-0.5,0-0.9-0.4-0.9-1C23.1,3.8,23.1,2.9,23.1,1.9z" />
+                                        <path class="st0" d="M52.2,32.3c-0.1,0.7-0.2,1.3-0.3,1.9c0.2-0.1,0.3-0.1,0.4-0.1c2-0.7,4,0.5,4.3,2.7c0.4,3-1.9,5.1-4.8,4.4
+                                            c-1.2-0.3-2.1-1.2-2.3-2.4c-0.1-0.5,0.1-0.9,0.6-1.1c0.5-0.2,0.9,0,1.2,0.5c0.2,0.3,0.3,0.7,0.6,1c0.8,0.8,2,0.7,2.5-0.4
+                                            c0.4-0.8,0.4-1.6,0.1-2.4c-0.4-0.9-1.5-1.2-2.3-0.7c-0.3,0.2-0.5,0.5-0.8,0.6c-0.3,0.1-0.7,0.1-1,0c-0.4-0.1-0.5-0.5-0.4-1
+                                            c0.2-1.3,0.4-2.6,0.6-3.9c0.2-0.9,0.5-1.1,1.4-1.1c1.2,0,2.3,0,3.5,0c0.8,0,1.2,0.3,1.2,1c0,0.6-0.4,1-1.2,1
+                                        C54.2,32.3,53.2,32.3,52.2,32.3z" />
+                                        <path class="st0" d="M30.8,39.1c1.2,0,2.2,0,3.2,0c0.2,0,0.4,0,0.6,0.1c0.5,0.1,0.8,0.5,0.7,1.1c-0.1,0.5-0.4,0.8-0.9,0.8
+                                            c-1.7,0-3.5,0-5.2,0c-0.7,0-1.2-0.6-1-1.2c0.1-0.5,0.3-1,0.7-1.4c0.9-1,1.9-1.9,2.8-2.8c0.5-0.5,1-1,1.2-1.7c0.4-0.9,0-1.7-0.8-2
+                                            c-0.8-0.3-1.5,0.1-1.9,1.1c-0.1,0.2-0.2,0.5-0.3,0.7c-0.2,0.4-0.6,0.6-1,0.5c-0.5-0.1-0.7-0.4-0.7-0.9c-0.1-1.4,0.9-2.8,2.3-3.1
+                                        c0.8-0.2,1.7-0.2,2.5,0c1.8,0.4,2.7,2.6,1.9,4.4c-0.3,0.6-0.7,1.1-1.1,1.6c-0.6,0.7-1.3,1.2-2,1.9C31.4,38.4,31.2,38.7,30.8,39.1z" />
+                                        <path class="st0" d="M42.7,36.9c1.2,0.1,1.5,0.3,1.5,1c0,0.6-0.3,0.8-1.5,0.9c0,0.4,0,0.9,0,1.3c0,0.7-0.4,1.1-0.9,1.1
+                                            c-0.5,0-0.9-0.4-1-1c0-0.5,0-0.9,0-1.5c-1.1,0-2.1,0-3.1,0c-0.6,0-1.1-0.1-1.4-0.6c-0.3-0.6-0.1-1.1,0.2-1.5c1.3-1.9,2.7-3.8,4-5.7
+                                            c0.1-0.1,0.2-0.2,0.3-0.4c0.3-0.4,0.7-0.5,1.2-0.4c0.5,0.1,0.7,0.5,0.7,1c0,0.4,0,0.9,0,1.3C42.7,33.9,42.7,35.4,42.7,36.9z
+                                        M40.8,33.5c0,0-0.1,0-0.1,0c-0.8,1.1-1.6,2.3-2.4,3.5c0.9,0,1.7,0,2.5,0C40.8,35.7,40.8,34.6,40.8,33.5z" />
+                                        <path class="st0" d="M24.9,18.3c0,1.8,0,3.6,0,5.5c0,0.5-0.2,0.9-0.6,1.2c-2.1,1.4-4.1,2.9-6.2,4.3c-0.4,0.3-0.8,0.4-1.2,0.1
+                                            c-0.6-0.4-0.5-1.1,0.1-1.6c1.5-1,2.9-2.2,4.4-3.1c1.3-0.8,1.8-1.7,1.7-3.2c-0.1-2.8,0-5.7,0-8.6c0-0.2,0-0.4,0-0.6
+                                        c0.1-0.5,0.4-0.8,0.9-0.8c0.5,0,0.8,0.3,0.9,0.9c0,0.8,0,1.6,0,2.3C24.9,16,24.9,17.1,24.9,18.3z" />
+                                        <path class="st0" d="M44.7,40.5c0.3-1.1,0.5-2.3,0.8-3.4c0.5-2.1,0.9-4.1,1.4-6.2c0.1-0.3,0.3-0.7,0.5-0.8c0.6-0.3,1.2,0.2,1.1,0.9
+                                        c-0.2,1.1-0.5,2.2-0.7,3.3c-0.5,2-0.9,4-1.4,6.1c0,0.1-0.1,0.3-0.1,0.4c-0.2,0.5-0.5,0.6-1,0.5C44.8,41.2,44.7,40.9,44.7,40.5z" />
+                                        <path class="st0" d="M48.1,24.1c0,0.5-0.4,0.9-0.9,0.9c-0.5,0-0.9-0.4-0.9-0.9c0-0.5,0.4-0.9,0.9-0.9
+                                        C47.7,23.2,48.1,23.6,48.1,24.1z" />
+                                        <path class="st0" d="M45,12.5c0,0.5-0.4,0.9-0.9,0.9c-0.5,0-0.9-0.4-0.9-0.9c0-0.5,0.4-0.9,0.9-0.9C44.5,11.6,45,12,45,12.5z" />
+                                        <path class="st0" d="M36.5,4.1c0,0.5-0.4,0.9-0.9,0.9c-0.5,0-0.9-0.4-0.9-1c0-0.5,0.4-0.9,0.9-0.8C36.1,3.2,36.5,3.6,36.5,4.1z" />
+                                        <path class="st0" d="M30.9,1.7c0,0.5-0.4,0.9-0.9,0.9c-0.5,0-0.9-0.4-0.9-0.8c0-0.5,0.4-1,0.9-1C30.5,0.8,30.9,1.2,30.9,1.7z" />
+                                        <path class="st0" d="M40.4,8.6c-0.5,0-0.9-0.4-0.9-0.9c0-0.5,0.4-0.9,0.9-0.9c0.5,0,0.9,0.4,0.9,0.9C41.3,8.2,40.9,8.6,40.4,8.6z" />
+                                        <path class="st0" d="M47.3,18.1c0,0.5-0.4,0.9-0.9,0.9c-0.5,0-0.9-0.5-0.9-1c0-0.5,0.4-0.9,0.9-0.8C46.9,17.2,47.3,17.6,47.3,18.1z
+                                    " />
+                                    </g>
+                                </svg>
+
+                            </div>
+                            <!-- Title -->
+                            <h5 class="text-white mb-3">
+                                {{ item.active_contact_headline }}
+                            </h5>
+                            {% set email_reps = item.contact_email_repeater %}
+
+                            {% if email_reps is not empty %}
+                                <ul class="list-inline mb-0">
+                                    {% for email in email_reps %}
+                                    <li class="list-item mb-3">
+                                        <h6 class="text-white">
+                                            {{ email.contact_us_headline }}
+                                        </h6>
+                                        <a href="mailto:{{ email.contact_us_email }}" class="text-white">
+                                            <i class="far fa-fw fa-envelope me-2"></i>
+                                            {{ email.contact_us_email }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    <!-- Box item -->
+
+    </div>
+</div></section>

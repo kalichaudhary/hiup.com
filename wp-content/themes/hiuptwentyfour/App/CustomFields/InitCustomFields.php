@@ -2,10 +2,11 @@
 
 namespace App\CustomFields;
 
+use App\CustomFields\PostCustomFields;
 use App\CustomFields\ThemeOptionsFields;
-use App\CustomFields\HomepageFlexibleFields;
 use App\CustomFields\HomepageCustomFields;
 use App\CustomFields\AboutUsFlexibleFields;
+use App\CustomFields\HomepageFlexibleFields;
 use App\CustomFields\ServicesFlexibleFields;
 use App\CustomFields\ContactUsFlexibleFields;
 
@@ -25,5 +26,6 @@ class InitCustomFields
         AboutUsFlexibleFields::init();
         ServicesFlexibleFields::init();
         ContactUsFlexibleFields::init();
+        PostCustomFields::init();
     }
 }
