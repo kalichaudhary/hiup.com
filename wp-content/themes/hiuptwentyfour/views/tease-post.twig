@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div	class="col-sm-6 col-lg-4 grid-item">
-		<div	class="card {% if post.thumbnail.src %} bg-transparent {% else %} bg-light {% endif %}">
+		<div	class="card {% if post.thumbnail.src or post.meta('video_url') %} bg-transparent {% else %} bg-light {% endif %}">
 
 			{% if post.thumbnail.src and post.meta('video_url') is empty %}
 				<div	class="overflow-hidden rounded-3">
@@ -20,7 +20,7 @@
 			{% elseif post.meta('video_url') is not empty %}
 				<div	class="card-img-top rounded-3 overflow-hidden position-relative hover-overlay-top">
 					<div	class="ratio ratio-16x9">
-						<iframe	width="620"	height="347"	src="{{ post.meta('video_url') }}"	allow="autoplay; encrypted-media"	allowfullscreen="" />
+						<iframe	width="620"	height="347" src="{{ post.meta('video_url') }}"	allow="autoplay; encrypted-media"	allowfullscreen="" />
 					</iframe>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 				</a>
 			</h5>
 			<p	class="text-truncate-2">
-				{{ post.excerpt({ words:25 }) }}
+				{{ post.excerpt({ words: 25, read_more: '' }) | raw }}
 			</p>
 			<!-- Info -->
 			<div	class="d-flex justify-content-between">

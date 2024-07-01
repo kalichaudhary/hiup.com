@@ -8,11 +8,11 @@ const getMoreData = (event) => {
   currentPage++;
 
   const btnEl = event.target;
-  const { totalPages: maxNoPages, postsPerPage: postsPerPage } =
-    btnEl.dataset;
+  const { maxpages: maxNoPages, postsperpage: postsPerPage,nonce } = btnEl.dataset;
 
   let loadMoreData = new FormData();
   loadMoreData.append("action", "load_more");
+  loadMoreData.append("security", nonce);
   loadMoreData.append("paged", currentPage);
   loadMoreData.append("posts_per_page", postsPerPage);
   loadMoreData.append("max_no_pages", maxNoPages);

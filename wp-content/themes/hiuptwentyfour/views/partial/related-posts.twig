@@ -1,0 +1,46 @@
+{# Display related posts #}
+{% if related_posts is not empty %}
+    <section class="pt-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="mb-0">
+                        You may also like
+                    </h2>
+                </div>
+            </div>
+
+            <div class="tiny-slider arrow-round arrow-hover arrow-dark">
+                <div class="tiny-slider-inner" data-autoplay="false" data-arrow="true" data-edge="2" data-dots="false" data-items="3" data-items-lg="2" data-items-sm="1">
+
+                    {% for post in related_posts %}
+                        <div class="card bg-transparent">
+                            <div class="row g-0">
+                                {% if post.thumbnail.src is not empty %}
+                                    <div class="col-md-4">
+                                        <img src="{{ post.thumbnail.src | resize(134,75) }}" class="img-fluid rounded-start" alt="{{ post.thumbnail.alt }}" />
+                                    </div>
+                                {% endif %}
+                                <div class="col-md-8">
+                                    <div class="card-body">
+
+                                        <h6 class="card-title">
+                                            <a href="{{ post.link }}">
+                                                {{ post.title }}
+                                            </a>
+                                        </h6>
+                                        <span class="small">
+                                            {{ post.date|date("F j, Y") }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </section>
+        {% endif %}
+        

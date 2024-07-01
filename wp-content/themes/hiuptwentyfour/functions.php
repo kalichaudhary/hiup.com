@@ -172,7 +172,3 @@ function custom_admin_css()
 <?php
 }
 
-function carbonPostMeta($field)
-{
-    return carbon_get_the_post_meta($field);
-}

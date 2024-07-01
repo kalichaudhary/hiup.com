@@ -44,7 +44,7 @@
 
     <section class="position-relative pt-0">
         <div class="container">
-            <div class="row g-4 filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'>
+            <div class="js-lists row g-4 filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'>
                 {% for post in posts %}
                     {% include 'tease-'~post.post_type~'.twig' %}
                 {% endfor %}

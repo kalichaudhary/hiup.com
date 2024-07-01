@@ -1,39 +1,109 @@
 {% extends "base.twig" %}
 
+{% set topic_url = post.meta('topic_url') %}
+
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<a href="{{ post.link }}">{{ _e('edit') }}</a>
-				<p class="blog-author">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
+    <section class="pb-0 pt-4 pb-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-9 order-1">
+                            <span>
+                                {{ post.date|date("F j, Y") }}
+                            </span>
+                            <span class="mx-2">
+                                |
+                            </span>
+                            <span>
+                                By
+                                {{ post.author.name }}
+                            </span>
 
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
-				</div>
+                            {% if topic_url.url is not empty %}
+                                <span class="mx-2">
+                                    |
+                                </span>
+                                <div class="badge bg-success">
+                                    <a href="{{ topic_url.url | esc_url }}" class="text-white" {% if topic_url.blank %} target="_blank" {% endif %}>
+                                        {{ topic_url.anchor }}
+                                    </a>
+                                </div>
+                            {% endif %}
 
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
-{% endblock %}
+                            <h1 class="mt-2 mb-0 display-5">
+                                {{ post.title }}
+                            </h1>
+
+                            {% if post.post_excerpt %}
+                                <p class="mt-2">
+                                    {{ post.excerpt.read_more('Read more') | raw }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% if post.thumbnail.src or post.meta('video_url') is not empty %}
+                    <div class="col-xl-10 mx-auto">
+                        <div class="card overflow-hidden h-200px h-sm-300px h-lg-400px h-xl-500px rounded-3 text-center" style="background-image: url('{{ post.thumbnail.src }}'); background-position: center left; background-size: cover;">
+
+                            {% if post.meta('video_url') is not empty %}
+                                <div class="bg-overlay bg-dark opacity-4"></div>
+                                <div class="card-img-overlay d-flex align-items-center p-2 p-sm-4">
+                                    <div class="w-100 my-auto">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12">
+                                                <a href="{{ post.meta('video_url') }}" class="btn btn-lg text-danger btn-round btn-white-shadow stretched-link position-static mb-0" data-glightbox="" data-gallery="video-tour">
+                                                    <i class="fas fa-play"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="row mt-4">
+                    <div class="col-12 mt-4 mt-lg-0">
+                        {{ post.content | raw | wpautop }}
+                    </div>
+                    <div class="row g-4 mt-4">
+                        <div class="d-lg-flex justify-content-lg-between mb-4">
+                            <div class="align-items-center mb-3 mb-lg-0">
+                                <h6 class="mb-2 me-4 d-inline-block">
+                                    Share on:
+                                </h6>
+                                <ul class="list-inline mb-0 mb-2 mb-sm-0">
+                                    <li class="list-inline-item">
+                                        <a class="btn px-2 btn-sm bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ post.link }}" target="_blank" rel="noopener noreferrer">
+                                            <i class="fab fa-fw fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn px-2 btn-sm bg-twitter" href="https://twitter.com/intent/tweet?url={{ post.link }}&text={{ post.title }}" target="_blank" rel="noopener noreferrer">
+                                            <i class="fab fa-fw fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn px-2 btn-sm bg-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.link }}" target="_blank" rel="noopener noreferrer">
+                                            <i class="fab fa-fw fa-linkedin-in"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    </div>
+                </div>
+            </section>
+
+            {% include 'partial/related-posts.twig' %}
+
+        {% endblock %}
+        

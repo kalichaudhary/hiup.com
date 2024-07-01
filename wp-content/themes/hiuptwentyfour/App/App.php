@@ -4,6 +4,7 @@ namespace App;
 
 use App\Core\WP;
 use App\Core\WPDisableComments;
+use App\Requests\LoadMoreRequest;
 use App\PostTypes\TestimonialPostType;
 use App\Integrations\CarbonIntegration;
 
@@ -54,6 +55,9 @@ class App
 
     // Init service post type
     TestimonialPostType::init();
+
+    // Listen for ajax requests
+    LoadMoreRequest::listen();
   }
 
   /**

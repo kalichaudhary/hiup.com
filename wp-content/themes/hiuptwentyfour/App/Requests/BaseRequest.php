@@ -15,7 +15,7 @@ abstract class BaseRequest
     protected static $action;
     protected static $nonce;
     protected static $verify_nonce = true;
-    protected static $nonce_field = 'nonce';
+    protected static $nonce_field = 'security';
     public static $request;
     public static $wp;
     public static $user;
@@ -43,9 +43,9 @@ abstract class BaseRequest
         $class = static::getClassName();
         $class = new $class;
 
-        // if ($class::$verify_nonce) {
-        //     $class::verifyNonce();
-        // }
+        if ($class::$verify_nonce) {
+            $class::verifyNonce();
+        }
 
         $class::run();
         die();

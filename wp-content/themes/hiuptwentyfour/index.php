@@ -19,8 +19,13 @@ $context['posts'] = Timber::get_posts();
 $context['foo']   = 'bar';
 $templates        = ['index.twig'];
 if (is_home()) {
-	$context['total_posts']    = intval(wp_count_posts()->publish);
-	$context['posts_per_page'] = intval(get_option('posts_per_page'));
+	$total_posts = intval(wp_count_posts()->publish);
+	$posts_per_page = intval(get_option('posts_per_page'));
+	$max_no_pages = ceil($total_posts / $posts_per_page);
+
+	$context['posts_per_page'] = $posts_per_page;
+	$context['max_no_pages'] = $max_no_pages;
+
 	$templates = ['home.twig'];
 }
 Timber::render($templates, $context);

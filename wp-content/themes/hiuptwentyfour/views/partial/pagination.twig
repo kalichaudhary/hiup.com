@@ -1,5 +1,6 @@
 {% if posts.pagination.pages is not empty %}
-    <a href="#" id="js-load-more" class="btn btn-primary-soft mb-0" data-totalPages="{{ total_posts}}" data-postsPerPage="{{ posts_per_page}}">
+    <a href="#" id="js-load-more" class="js-pagination-wrapper btn btn-primary-soft mb-0" data-maxPages="{{ max_no_pages }}" data-postsPerPage="{{ posts_per_page }}" 
+    data-nonce="{{ fn('wp_create_nonce','_load_more_') }}">
         Load more
         <i class="fas fa-sync ms-2"></i>
     </a>
