@@ -2,8 +2,6 @@
 
 {% block content %}
 
-{{dump(post.meta('contact_us_sections'))}}
-
     {% for section in post.meta('contact_us_sections') %}
 
         {% include "layouts/contact/" ~ section._type ~ ".twig" ignore missing %}

@@ -9,6 +9,7 @@ use App\CustomFields\AboutUsFlexibleFields;
 use App\CustomFields\HomepageFlexibleFields;
 use App\CustomFields\ServicesFlexibleFields;
 use App\CustomFields\ContactUsFlexibleFields;
+use App\CustomFields\TestimonialCustomFields;
 
 class InitCustomFields
 {
@@ -27,5 +28,6 @@ class InitCustomFields
         ServicesFlexibleFields::init();
         ContactUsFlexibleFields::init();
         PostCustomFields::init();
+        TestimonialCustomFields::init();
     }
 }

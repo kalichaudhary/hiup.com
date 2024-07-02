@@ -15,8 +15,8 @@ class ThemeOptionsFields
 
     private static function attachThemeOptions()
     {
-        Container::make('theme_options', __('HiUp Settings'))
-            // ->where('post_type', '=', 'page')
+        // ->where('post_type', '=', 'page')
+        Container::make('theme_options', __('Theme Options'))
             ->add_tab(
                 __('General Settings'),
                 array(

@@ -15,10 +15,10 @@
 <header	class="navbar-light header-static navbar-sticky">
 	{% block header %}
 
-		<nav class="navbar navbar-expand-xl">
-			<div class="container">
-				<a class="navbar-brand me-0"	href="index.html">
-					<img class="light-mode-item navbar-brand-item"	src="{{ theme.link }}/assets/images/logo-dark-36.webp"	alt="logo" />
+		<nav	class="navbar navbar-expand-xl">
+			<div	class="container">
+				<a	class="navbar-brand me-0"	href="{{ site.url }}">
+					<img	class="light-mode-item navbar-brand-item"	src="{{ theme.link }}/assets/images/logo-dark-36.webp"	alt="logo" />
 				</a>
 
 				<button	class="navbar-toggler ms-auto"	type="button"	data-bs-toggle="collapse"	data-bs-target="#navbarCollapse"	aria-controls="navbarCollapse"	aria-expanded="false"	aria-label="Toggle navigation">
@@ -29,12 +29,12 @@
 					</span>
 				</button>
 
-				<div class="navbar-collapse collapse"	id="navbarCollapse">
+				<div	class="navbar-collapse collapse"	id="navbarCollapse">
 					{% include "menu.twig" with {'items': menu.get_items} %}
 				</div>
 			</div>
 		</nav>
-		
+
 	{% endblock %}
 </header>
 <main>
@@ -43,7 +43,7 @@
 			{{ title }}
 		</h1>
 	{% endif %}
-	<div class="wrapper">
+	<div	class="wrapper">
 		{% block content %}
 			Sorry, no content
 		{% endblock %}
