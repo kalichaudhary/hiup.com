@@ -249,6 +249,7 @@ class WP
     public static function registerMenus()
     {
         register_nav_menu('primary_menu', 'Primary Menu');
+        register_nav_menu('footer_home_menu', 'Homepage Footer Menu');
         register_nav_menu('footer_menu', 'Footer Menu #1');
         register_nav_menu('footer_menu_menu', 'Footer Menu #2');
     }
