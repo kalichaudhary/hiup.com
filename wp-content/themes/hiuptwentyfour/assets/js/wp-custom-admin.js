@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
         'Short Intro w/Products Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/news-layout.webp',
         'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp',
         // About us Layout
-        'Header Content - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor-layout.webp',
-        'Image(2)/Column(3) Image - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_Image_column_Image-layout.webp',
-        'Steps - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_steps-layout.webp',
-        'Text, Image, Counter - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor_image_counter-layout.webp',
+        'TextArea Editor & Image Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor-layout.webp',
+        'Text, Image, Counter Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_Image_column_Image-layout.webp',
+        'Steps Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_steps-layout.webp',
+        'Left Title/Description, Right Image Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor_image_counter-layout.webp',
         'Left Title/Description, Right Image - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor_image-layout.webp',
-        'Brand Logos - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_brand_logos-layout.webp',
-        'Award and Team - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_award_and_team-layout.webp',
-        'Action Box - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_action_box-layout.webp',
+        'Clients Logos Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_brand_logos-layout.webp',
+        'Award and Team Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_award_and_team-layout.webp',
+        'Introduction Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_action_box-layout.webp',
 
         // Blog Page Layout
         'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp',
