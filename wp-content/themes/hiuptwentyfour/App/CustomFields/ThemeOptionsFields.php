@@ -56,7 +56,7 @@ class ThemeOptionsFields
                             Field::make('select', 'social_footer_icon', 'Social Icon')
                                 ->set_options(
                                     [
-                                        'fa-facebook' => 'Facebook',
+                                        'fa-facebook-f' => 'Facebook',
                                         'fa-instagram' => 'Instagram',
                                         'fa-twitter' => 'Twitter',
                                         'fa-linkedin-in' => 'LinkedIn',

@@ -36,65 +36,79 @@ class ContactUsFlexibleFields
                             ->set_layout('tabbed-horizontal')
                             ->add_fields([
                                 Field::make('image', 'country_logo', 'Country Logo')->set_help_text(__('Country Logo - Recommended Aspect Ratio:1/1, Eg. 48px/48px'))
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '!='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '!='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('text', 'contact_us_country', __('Country'))
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '!='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '!='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('text', 'contact_us_location', __('Location'))
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '!='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '!='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('text', 'contact_us_phone', __('Contact Number'))
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '!='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '!='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('text', 'active_contact_headline', __('Main Headline'))
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('complex', 'contact_email_repeater', 'Contact Info Repeater')
                                     ->add_fields([
                                         Field::make('text', 'contact_us_headline', __('Headline')),
                                         Field::make('text', 'contact_us_email', __('Email Address')),
                                     ])
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('text', 'contact_us_email', __('Email Address'))
-                                    ->set_conditional_logic(array(
-                                        [
-                                            'field' => 'active_contact',
-                                            'value' => true,
-                                            'compare' => '!='
-                                        ]
-                                    )),
+                                    ->set_conditional_logic(
+                                        array(
+                                            [
+                                                'field' => 'active_contact',
+                                                'value' => true,
+                                                'compare' => '!='
+                                            ]
+                                        )
+                                    ),
                                 Field::make('checkbox', 'active_contact', __('Set as Active Contact Details'))
                                     ->set_option_value('no')
                             ]),
@@ -112,16 +126,18 @@ class ContactUsFlexibleFields
                                 Field::make('complex', 'left_sub', '')
                                     ->add_fields([
                                         Field::make('select', 'social_icon', 'Social Icon')
-                                            ->set_options(array(
-                                                'fa-facebook-square' => 'Facebook',
-                                                'fa-instagram'       => 'Instagram',
-                                                'fa-twitter'         => 'Twitter',
-                                                'fa-linkedin-in'     => 'LinkedIn',
-                                                'fa-dribbble'        => 'Dribbble',
-                                                'fa-pinterest'       => 'Pinterest',
-                                            ))
+                                            ->set_options(
+                                                array(
+                                                    'fa-facebook-square' => 'Facebook',
+                                                    'fa-instagram' => 'Instagram',
+                                                    'fa-twitter' => 'Twitter',
+                                                    'fa-linkedin-in' => 'LinkedIn',
+                                                    'fa-dribbble' => 'Dribbble',
+                                                    'fa-pinterest' => 'Pinterest',
+                                                )
+                                            )
                                             ->set_width(20),
-                                        Field::make('text', 'social_url', __('Social URL'))->set_attribute('placeholder', 'https://facebook.com')->set_width(70),
+                                        Field::make('text', 'social_url', __('Social URL'))->set_attribute('placeholder', 'https://www.exmaple.com')->set_width(70),
                                     ]),
                             ]),
                         Field::make('complex', 'right', 'Right')
