@@ -37,14 +37,33 @@ class ThemeOptionsFields
                     Field::make('complex', 'social_header_logos', 'Social Logos')
                         ->set_layout('tabbed-horizontal')
                         ->add_fields([
-                            Field::make('text', 'social_header_icon', __('Social SVG Icon'))->set_attribute('placeholder', 'Enter the svg code')->set_width(50),
+                            Field::make('select', 'social_header_icon', 'Social Icon')
+                                ->set_options(
+                                    [
+                                        'fa-facebook' => 'Facebook',
+                                        'fa-instagram' => 'Instagram',
+                                        'fa-twitter' => 'Twitter',
+                                        'fa-linkedin-in' => 'LinkedIn',
+                                    ]
+                                )
+                                ->set_width(20),
                             Field::make('text', 'social_header_url', __('Social URL'))->set_attribute('placeholder', 'http://www.example.com')->set_width(50),
                         ]),
                     Field::make('separator', 'crb_separator_common_footer_section', __('Footer Section')),
                     Field::make('complex', 'social_footer_logos', 'Social Logos')
                         ->set_layout('tabbed-horizontal')
                         ->add_fields([
-                            Field::make('text', 'social_footer_icon', __('Social SVG Icon'))->set_attribute('placeholder', 'Enter the svg code')->set_width(50),
+                            Field::make('select', 'social_footer_icon', 'Social Icon')
+                                ->set_options(
+                                    [
+                                        'fa-facebook' => 'Facebook',
+                                        'fa-instagram' => 'Instagram',
+                                        'fa-twitter' => 'Twitter',
+                                        'fa-linkedin-in' => 'LinkedIn',
+                                    ]
+                                )
+                                ->set_width(20),
+
                             Field::make('text', 'social_footer_url', __('Social URL'))->set_attribute('placeholder', 'http://www.example.com')->set_width(50),
                         ]),
                 )
