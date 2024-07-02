@@ -55,6 +55,37 @@ class AboutUsFlexibleFields
                             ]),
                     ])
 
+                    //Counter Layout
+                    ->add_fields('about_us_image_counter_layout', 'Text, Image, Counter Layout', [
+                        Field::make('text', 'crb_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
+                        Field::make('textarea', 'crb_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 50 words'),
+
+                        Field::make('complex', 'left', 'Image')
+                            ->set_duplicate_groups_allowed(false)
+                            ->set_width(20)
+                            ->add_fields([
+                                Field::make('image', 'image_block', 'Image'),
+                            ]),
+                        Field::make('complex', 'right', 'Description and Counter - Layout')
+                            ->set_duplicate_groups_allowed(false)
+                            ->set_width(80)
+                            ->add_fields([
+                                Field::make('textarea', 'crb__image_counter_layout_description', __('Long Description'))->set_attribute('placeholder', 'Long Description - Max 200 words'),
+                                Field::make('separator', 'crb_separator_counter_block', __('Add Counters block')),
+                                Field::make('complex', 'counter_items', 'Counter Items')
+                                    ->set_layout('tabbed-horizontal')
+                                    ->add_fields([
+                                        Field::make('text', 'counter_label', 'Counter Label')
+                                            ->set_default_value('Dedicated People'),
+                                        Field::make('text', 'counter_end', 'Total Counter')
+                                            ->set_default_value('100'),
+                                        Field::make('text', 'counter_suffix', 'Counter Suffix')
+                                            ->set_default_value('+')
+                                            ->set_help_text('Suffix for the counter, e.g., +, K+, M+'),
+                                    ]),
+                            ]),
+                    ])
+
                     //Steps Layout
                     ->add_fields('steps_layout', 'Steps Layout', [
                         Field::make('text', 'crb_title', __('Title'))->set_attribute('placeholder', 'Title')->set_width(33.33),
@@ -87,36 +118,7 @@ class AboutUsFlexibleFields
                             ]),
                     ])
 
-                    //Counter Layout
-                    ->add_fields('about_us_image_counter_layout', 'Text, Image, Counter Layout', [
-                        Field::make('text', 'crb_image_counter_layout_title', __('Title'))->set_attribute('placeholder', 'Title'),
-                        Field::make('textarea', 'crb_image_counter_layout_short_description', __('Short Description'))->set_attribute('placeholder', 'Short Description - Max 50 words'),
 
-                        Field::make('complex', 'left', 'Image')
-                            ->set_duplicate_groups_allowed(false)
-                            ->set_width(20)
-                            ->add_fields([
-                                Field::make('image', 'image_block', 'Image'),
-                            ]),
-                        Field::make('complex', 'right', 'Description and Counter - Layout')
-                            ->set_duplicate_groups_allowed(false)
-                            ->set_width(80)
-                            ->add_fields([
-                                Field::make('textarea', 'crb__image_counter_layout_description', __('Long Description'))->set_attribute('placeholder', 'Long Description - Max 200 words'),
-                                Field::make('separator', 'crb_separator_counter_block', __('Add Counters block')),
-                                Field::make('complex', 'counter_items', 'Counter Items')
-                                    ->set_layout('tabbed-horizontal')
-                                    ->add_fields([
-                                        Field::make('text', 'counter_label', 'Counter Label')
-                                            ->set_default_value('Dedicated People'),
-                                        Field::make('text', 'counter_end', 'Total Counter')
-                                            ->set_default_value('100'),
-                                        Field::make('text', 'counter_suffix', 'Counter Suffix')
-                                            ->set_default_value('+')
-                                            ->set_help_text('Suffix for the counter, e.g., +, K+, M+'),
-                                    ]),
-                            ]),
-                    ])
 
 
                     //Vision Layout
@@ -177,7 +179,7 @@ class AboutUsFlexibleFields
                                 Field::make('text', 'crb_action_box_avatar_designation', __('Designation'))->set_attribute('placeholder', 'Avatar Designation'),
                             ]),
                         Field::make('rich_text', 'crb_action_box_wysiwyg_description', __('Introduction'))
-                        ->set_width(50),
+                            ->set_width(50),
 
                     ])
 
