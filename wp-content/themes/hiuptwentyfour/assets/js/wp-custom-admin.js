@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         'Counters Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/counters_layout.webp',
         'Short Intro w/Products Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/news-layout.webp',
         'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp',
+
         // About us Layout
         'TextArea Editor & Image Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_wysiwyg_editor-layout.webp',
         'Text, Image, Counter Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_Image_column_Image-layout.webp',
@@ -19,14 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
         'Award and Team Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_award_and_team-layout.webp',
         'Introduction Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/about_action_box-layout.webp',
 
-        // Blog Page Layout
-        'Posts Feed Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/blog-layout.webp',
-
-        // Blog Page Layout
+        // Contact Us Layout
         'Header content - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_header_layout.webp',
-        'Location Card - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_location_card_layout.webp',
-        'Contact Form Container  - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_form_layout.webp',
-        'Map - Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_us_map_layout.webp'
+        'Location Card Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/location_card_layout.webp',
+        'Contact Form Container Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/contact_form_container_layout.webp',
+        'Map Layout': './../wp-content/themes/hiuptwentyfour/assets/layouts/map_layout.webp'
     };
 
     const listItems = document.querySelectorAll('.cf-complex__inserter-item');
