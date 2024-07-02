@@ -16,7 +16,6 @@ class ThemeOptionsFields
     private static function attachThemeOptions()
     {
         Container::make('theme_options', __('Theme Options'))
-            // ->where('post_type', '=', 'page')
             ->add_tab(
                 __('General Settings'),
                 array(

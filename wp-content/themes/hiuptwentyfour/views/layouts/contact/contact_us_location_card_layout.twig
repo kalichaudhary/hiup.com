@@ -1,4 +1,4 @@
-<section class="pt-5 pb-0" style="background-image:url(assets/images/element/map.svg); background-position: center left; background-size: cover;">
+<section class="pt-5 pb-0" style="background-image:url({{ site.theme.link }}/assets/images/element/map.svg); background-position: center left; background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-xl-6 text-center mx-auto">
@@ -113,24 +113,25 @@
                             {% if email_reps is not empty %}
                                 <ul class="list-inline mb-0">
                                     {% for email in email_reps %}
-                                    <li class="list-item mb-3">
-                                        <h6 class="text-white">
-                                            {{ email.contact_us_headline }}
-                                        </h6>
-                                        <a href="mailto:{{ email.contact_us_email }}" class="text-white">
-                                            <i class="far fa-fw fa-envelope me-2"></i>
-                                            {{ email.contact_us_email }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
+                                        <li class="list-item mb-3">
+                                            <h6 class="text-white">
+                                                {{ email.contact_us_headline }}
+                                            </h6>
+                                            <a href="mailto:{{ email.contact_us_email }}" class="text-white">
+                                                <i class="far fa-fw fa-envelope me-2"></i>
+                                                {{ email.contact_us_email }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-        {% endfor %}
+                {% endif %}
+            {% endfor %}
 
-    <!-- Box item -->
+        <!-- Box item -->
 
+        </div>
     </div>
-</div></section>
+</section>

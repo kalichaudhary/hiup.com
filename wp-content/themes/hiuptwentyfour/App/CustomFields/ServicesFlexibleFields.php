@@ -202,7 +202,7 @@ class ServicesFlexibleFields
                     ])
 
                     //Feedback Layout
-                    ->add_fields('service_feedback', 'Feedbacks Layout', [
+                    ->add_fields('service_feedback', 'Feedbacks w/Contact Form Layout', [
                         Field::make('complex', 'left_half_service_feedback', 'Left Block')
                             ->set_width(50)
                             ->set_duplicate_groups_allowed(false)
